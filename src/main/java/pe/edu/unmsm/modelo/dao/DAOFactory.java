@@ -14,7 +14,7 @@ import pe.edu.unmsm.modelo.dao.nuodb.NuoDBDaoFactory;
  */
 public abstract class DAOFactory {
 
-    public DAOFactory getDAOFactory(){
+    public static DAOFactory getDAOFactory(){
         switch(PropertiesLoader.dbms){
             case "nuodb":
                 return new NuoDBDaoFactory();

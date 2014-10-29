@@ -15,6 +15,15 @@ public class Usuario {
     private boolean habilitado;
     private String password;
 
+    public Usuario() {
+    }
+    
+    public Usuario(String correo, boolean habilitado, String password) {
+        this.correo = correo;
+        this.habilitado = habilitado;
+        this.password = password;
+    }
+
     public String getCorreo() {
         return correo;
     }

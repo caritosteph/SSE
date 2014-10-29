@@ -16,7 +16,7 @@ import pe.edu.unmsm.modelo.dominio.Usuario;
 public interface UsuarioDAO {
     List<Usuario> selectUsuarios();
     Usuario findUsuario();
-    int insertUsuario();
+    int insertUsuario(Usuario u);
     boolean updateUsuario();
     boolean deleteUsuario();
     

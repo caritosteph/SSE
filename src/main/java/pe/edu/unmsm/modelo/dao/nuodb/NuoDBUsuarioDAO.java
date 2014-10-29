@@ -7,6 +7,7 @@
 package pe.edu.unmsm.modelo.dao.nuodb;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.RowSet;
+import pe.edu.unmsm.modelo.dao.DAOFactory;
 import pe.edu.unmsm.modelo.dao.UsuarioDAO;
 import pe.edu.unmsm.modelo.dominio.Usuario;
 
@@ -38,8 +40,20 @@ public class NuoDBUsuarioDAO implements UsuarioDAO{
     }
 
     @Override
-    public int insertUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int insertUsuario(Usuario u) {
+        try {
+            String sql="insert into Usuario(correo, habilitado, password) values (?,?,?)";
+            Connection conn=NuoDBDaoFactory.createConnection();
+            PreparedStatement stmt=conn.prepareStatement(sql);
+            stmt.setString(1, u.getCorreo());
+            stmt.setBoolean(2, u.isHabilitado());
+            stmt.setString(3, u.getPassword());
+            return stmt.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(NuoDBUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
     }
 
     @Override

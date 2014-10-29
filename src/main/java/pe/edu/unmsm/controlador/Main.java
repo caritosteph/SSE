@@ -6,11 +6,7 @@
 
 package pe.edu.unmsm.controlador;
 
-import java.util.HashMap;
-import java.util.Map;
-import spark.ModelAndView;
 import spark.Spark;
-import spark.template.freemarker.FreeMarkerEngine;
 
 
 /**

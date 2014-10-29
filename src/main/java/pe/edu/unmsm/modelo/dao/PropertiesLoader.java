@@ -32,7 +32,7 @@ public class PropertiesLoader {
             Logger.getLogger(DAOFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
         url=prop.getProperty("url");
-        driver=prop.getProperty("user");
+        driver=prop.getProperty("driver");
         user=prop.getProperty("user");
         password=prop.getProperty("password");
         dbms=prop.getProperty("dbms");
