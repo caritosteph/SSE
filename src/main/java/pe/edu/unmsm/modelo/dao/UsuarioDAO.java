@@ -6,6 +6,7 @@
 
 package pe.edu.unmsm.modelo.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 import pe.edu.unmsm.modelo.dominio.Usuario;
 
@@ -14,10 +15,10 @@ import pe.edu.unmsm.modelo.dominio.Usuario;
  * @author Sadhu
  */
 public interface UsuarioDAO {
-    List<Usuario> selectUsuarios();
-    Usuario findUsuario();
-    int insertUsuario(Usuario u);
-    boolean updateUsuario();
-    boolean deleteUsuario();
+    public List<Usuario> selectUsuarios();
+    public Usuario findUsuario(String correo,String password) throws SQLException;
+    public int insertUsuario(Usuario u);
+    public boolean updateUsuario();
+    public boolean deleteUsuario();
     
 }

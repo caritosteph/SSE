@@ -6,6 +6,9 @@
 
 package pe.edu.unmsm.controlador;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pe.edu.unmsm.modelo.dao.DAOFactory;
 import pe.edu.unmsm.modelo.dao.UsuarioDAO;
 import pe.edu.unmsm.modelo.dominio.Usuario;
@@ -40,9 +43,14 @@ public class Main {
         Spark.post("/login", (req,res)->{
                DAOFactory df=DAOFactory.getDAOFactory();
                UsuarioDAO usuarioDAO=df.getUsuarioDAO();
-//               Usuario u = (Usuario)usuarioDAO.findUsuario("correo");
-               return "Ud. ha elegido la fruta "+req.queryParams("nombre");
+               Usuario u= null;
+            try {
+                u = (Usuario)usuarioDAO.findUsuario(req.queryParams("correo"),req.queryParams("password"));
+            } catch (SQLException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+               return "Bienvenido"+u.getIdUsuario();
        });
-        Spark.get("/hello", (req, res) -> "Hola mundo");
+       
     }
 }
