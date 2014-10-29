@@ -28,6 +28,15 @@ public class Usuario {
         this.telefono = telefono;
     }
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    
     public String getCorreo() {
         return correo;
     }
