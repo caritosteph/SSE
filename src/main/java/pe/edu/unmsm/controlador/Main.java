@@ -35,9 +35,10 @@ public class Main {
         Spark.post("/registro", (req,res)->{
                DAOFactory df=DAOFactory.getDAOFactory();
                UsuarioDAO usuarioDAO=df.getUsuarioDAO();
-               Usuario u=new Usuario(req.queryParams("correo"), true, req.queryParams("password"));
+               Usuario u=new Usuario(req.queryParams("correo"), true, req.queryParams("password"),req.queryParams("telefono"));
                usuarioDAO.insertUsuario(u);
-               return "Ud. ha elegido la fruta "+req.queryParams("nombre");
+               res.redirect("/home_egresado.html");
+               return null;
        });
         
         Spark.post("/login", (req,res)->{
