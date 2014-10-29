@@ -14,14 +14,16 @@ public class Usuario {
     private String correo;
     private boolean habilitado;
     private String password;
+    private String telefono;
 
     public Usuario() {
     }
-    
-    public Usuario(String correo, boolean habilitado, String password) {
+
+    public Usuario(String correo, boolean habilitado, String password, String telefono) {
         this.correo = correo;
         this.habilitado = habilitado;
         this.password = password;
+        this.telefono = telefono;
     }
 
     public String getCorreo() {
@@ -46,6 +48,14 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
     
     

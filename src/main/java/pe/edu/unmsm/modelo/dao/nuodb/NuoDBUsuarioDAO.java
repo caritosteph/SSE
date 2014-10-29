@@ -42,12 +42,13 @@ public class NuoDBUsuarioDAO implements UsuarioDAO{
     @Override
     public int insertUsuario(Usuario u) {
         try {
-            String sql="insert into Usuario(correo, habilitado, password) values (?,?,?)";
+            String sql="insert into Usuario(correo, habilitado, password, telefono) values (?,?,?,?)";
             Connection conn=NuoDBDaoFactory.createConnection();
             PreparedStatement stmt=conn.prepareStatement(sql);
             stmt.setString(1, u.getCorreo());
             stmt.setBoolean(2, u.isHabilitado());
             stmt.setString(3, u.getPassword());
+            stmt.setString(4, u.getTelefono());
             return stmt.executeUpdate();
             
         } catch (SQLException ex) {
