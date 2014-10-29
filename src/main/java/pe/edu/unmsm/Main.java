@@ -19,9 +19,10 @@ import spark.template.freemarker.FreeMarkerEngine;
  */
 public class Main {
     public static void main(String[] args) {
-        Spark.get("/",(req,res) ->{
+        Spark.staticFileLocation("/public");
+        /*Spark.get("/",(req,res) ->{
             return new ModelAndView(null, "home.ftl.html");
-        }, new FreeMarkerEngine());
+        }, new FreeMarkerEngine());*/
         Spark.get("/hello", (req, res) -> "Hola mundo");
     }
 }
