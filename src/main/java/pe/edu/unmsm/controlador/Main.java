@@ -36,6 +36,13 @@ public class Main {
                usuarioDAO.insertUsuario(u);
                return "Ud. ha elegido la fruta "+req.queryParams("nombre");
        });
+        
+        Spark.post("/login", (req,res)->{
+               DAOFactory df=DAOFactory.getDAOFactory();
+               UsuarioDAO usuarioDAO=df.getUsuarioDAO();
+//               Usuario u = (Usuario)usuarioDAO.findUsuario("correo");
+               return "Ud. ha elegido la fruta "+req.queryParams("nombre");
+       });
         Spark.get("/hello", (req, res) -> "Hola mundo");
     }
 }
