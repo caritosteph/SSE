@@ -23,15 +23,21 @@ import pe.edu.unmsm.modelo.dominio.Usuario;
  *
  * @author Sadhu
  */
-public class NuoDBUsuarioDAO implements UsuarioDAO{
+public class NuoDBUsuarioDAO implements UsuarioDAO {
+
+    //Coneccion
+    Connection conn = NuoDBDaoFactory.createConnection();
+
+    //Sentencias
+    private static final String SQL_FIND_BY_EMAIL_AND_PASSWORD = "select * usuario where correo = ? and password=? ";
 
     @Override
-    public List<Usuario> selectUsuarios(){
+    public List<Usuario> selectUsuarios() {
         try {
-            Usuario u=new Usuario();
-            Connection conn=NuoDBDaoFactory.createConnection();
-            Statement s=conn.createStatement();
-            ResultSet rs=s.executeQuery("select * from Usuario");
+            Usuario u = new Usuario();
+
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery("select * from Usuario");
             //falta
         } catch (SQLException ex) {
             Logger.getLogger(NuoDBUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,14 +48,13 @@ public class NuoDBUsuarioDAO implements UsuarioDAO{
     @Override
     public int insertUsuario(Usuario u) {
         try {
-            String sql="insert into Usuario(correo, habilitado, password) values (?,?,?)";
-            Connection conn=NuoDBDaoFactory.createConnection();
-            PreparedStatement stmt=conn.prepareStatement(sql);
+            String sql = "insert into Usuario(correo, habilitado, password) values (?,?,?)";
+            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, u.getCorreo());
             stmt.setBoolean(2, u.isHabilitado());
             stmt.setString(3, u.getPassword());
             return stmt.executeUpdate();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(NuoDBUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,10 +71,30 @@ public class NuoDBUsuarioDAO implements UsuarioDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Usuario findUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Usuario findUsuario(String sql,Object...valores) throws SQLException {
+        Usuario u = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            pstmt = conn.prepareStatement(SQL_FIND_BY_EMAIL_AND_PASSWORD);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                u.setIdUsuario(rs.getInt(1));
+                u.setCorreo(rs.getString(2));
+                u.setHabilitado(rs.getBoolean(3));
+                u.setPassword(rs.getString(4));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(NuoDBUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            rs.close();
+        }
+        return u;
     }
-    
-    
+
+    @Override
+    public Usuario findUsuario(String correo, String password) throws SQLException{
+        return findUsuario(SQL_FIND_BY_EMAIL_AND_PASSWORD,correo,password);
+    }
 }
