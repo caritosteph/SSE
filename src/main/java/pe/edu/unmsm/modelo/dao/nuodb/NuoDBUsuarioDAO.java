@@ -27,7 +27,7 @@ public class NuoDBUsuarioDAO implements UsuarioDAO{
     public List<Usuario> selectUsuarios(){
         try {
             Usuario u=new Usuario();
-            Connection conn=NuoDBDaoFactory.createConection();
+            Connection conn=NuoDBDaoFactory.createConnection();
             Statement s=conn.createStatement();
             ResultSet rs=s.executeQuery("select * from Usuario");
             //falta
