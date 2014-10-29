@@ -6,6 +6,9 @@
 
 package pe.edu.unmsm.controlador;
 
+import pe.edu.unmsm.modelo.dao.DAOFactory;
+import pe.edu.unmsm.modelo.dao.UsuarioDAO;
+import pe.edu.unmsm.modelo.dominio.Usuario;
 import spark.ModelAndView;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
@@ -17,11 +20,22 @@ import spark.template.freemarker.FreeMarkerEngine;
  */
 public class Main {
     public static void main(String[] args) {
+        
+        
         Spark.staticFileLocation("/public");
-        Spark.post("/registro",(req,res) ->{
-            System.out.println(req.params(:));
+        
+        /*Spark.post("/registro",(req,res) ->{
+            
             return new ModelAndView(null, "registrarse.ftl.html");
-        }, new FreeMarkerEngine());
+        }, new FreeMarkerEngine());*/
+        
+        Spark.post("/registro", (req,res)->{
+               DAOFactory df=DAOFactory.getDAOFactory();
+               UsuarioDAO usuarioDAO=df.getUsuarioDAO();
+               Usuario u=new Usuario(req.queryParams("correo"), true, req.queryParams("password"));
+               usuarioDAO.insertUsuario(u);
+               return "Ud. ha elegido la fruta "+req.queryParams("nombre");
+       });
         Spark.get("/hello", (req, res) -> "Hola mundo");
     }
 }
