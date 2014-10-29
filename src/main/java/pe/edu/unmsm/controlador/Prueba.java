@@ -23,7 +23,7 @@ public class Prueba {
         // TODO code application logic here
         DAOFactory df=DAOFactory.getDAOFactory();
         UsuarioDAO usuarioDAO=df.getUsuarioDAO();
-        usuarioDAO.insertUsuario(new Usuario("carlos.sadhu@gmail.com", true, "holamundo"));
+        usuarioDAO.insertUsuario(new Usuario("chavodel8@gmail.com", true, "quebonitavecindad"));
     }
     
 }

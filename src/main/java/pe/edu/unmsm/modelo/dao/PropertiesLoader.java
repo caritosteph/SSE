@@ -23,9 +23,10 @@ public class PropertiesLoader {
     public static String driver;
     public static String user;
     public static String password;
+    public static Properties prop;
     
     static{
-        Properties prop=new Properties();
+        prop=new Properties();
         try {
             prop.load(new FileInputStream(FILENAME));
         } catch (IOException ex) {

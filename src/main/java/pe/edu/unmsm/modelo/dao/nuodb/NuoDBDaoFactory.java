@@ -9,6 +9,7 @@ package pe.edu.unmsm.modelo.dao.nuodb;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 import pe.edu.unmsm.modelo.dao.DAOFactory;
 import pe.edu.unmsm.modelo.dao.PropertiesLoader;
 import pe.edu.unmsm.modelo.dao.UsuarioDAO;
@@ -24,8 +25,9 @@ public class NuoDBDaoFactory extends DAOFactory{
         // Load the driver
         Class.forName(PropertiesLoader.driver);
         // Create the connection
-        Connection conn = DriverManager.getConnection(PropertiesLoader.url, PropertiesLoader.user, PropertiesLoader.password);
-
+        
+        Connection conn = DriverManager.getConnection(PropertiesLoader.url, PropertiesLoader.prop);
+        return conn;
         //Do Something with your connection
     } 
     catch (ClassNotFoundException e) {

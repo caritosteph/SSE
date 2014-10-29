@@ -6,7 +6,9 @@
 
 package pe.edu.unmsm.controlador;
 
+import spark.ModelAndView;
 import spark.Spark;
+import spark.template.freemarker.FreeMarkerEngine;
 
 
 /**
@@ -16,9 +18,10 @@ import spark.Spark;
 public class Main {
     public static void main(String[] args) {
         Spark.staticFileLocation("/public");
-        /*Spark.get("/",(req,res) ->{
-            return new ModelAndView(null, "home.ftl.html");
-        }, new FreeMarkerEngine());*/
+        Spark.post("/registro",(req,res) ->{
+            System.out.println(req.params(:));
+            return new ModelAndView(null, "registrarse.ftl.html");
+        }, new FreeMarkerEngine());
         Spark.get("/hello", (req, res) -> "Hola mundo");
     }
 }
