@@ -6,11 +6,6 @@
 
 package pe.edu.unmsm.modelo.dao;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import pe.edu.unmsm.modelo.dao.nuodb.NuoDBDaoFactory;
 
 /**
@@ -24,7 +19,7 @@ public abstract class DAOFactory {
             case "nuodb":
                 return new NuoDBDaoFactory();
             case "mongodb":
-                //falta implementar
+                //se puede implementar
             default:
                 return null;
         }

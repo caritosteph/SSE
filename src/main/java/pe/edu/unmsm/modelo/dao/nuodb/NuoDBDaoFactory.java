@@ -18,7 +18,7 @@ import pe.edu.unmsm.modelo.dao.UsuarioDAO;
  * @author Sadhu
  */
 public class NuoDBDaoFactory extends DAOFactory{
-    public static Connection createConection() {
+    public static Connection createConnection() {
         
     try {
         // Load the driver
