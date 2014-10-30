@@ -1,14 +1,6 @@
 html, body {
     height: 0;
 }
-body {
-    color: #fff;
-    font-family: "Open Sans",sans-serif;
-    background: url(../assets/img/bg.jpg) no-repeat center center fixed; 
-}
-/**********************************************************************/
-/************************** COMMON ELEMENTS **************************/
-/********************************************************************/
 
 a:focus {
     outline: none;
