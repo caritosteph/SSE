@@ -434,6 +434,8 @@ section.featured {
 	padding: 120px 0 0px;
 	background: #235A83;
 	color: white;
+        height: 530px;
+
 }
 
 section.featured h2.slogan {
