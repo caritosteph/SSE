@@ -16,16 +16,16 @@ public class Usuario {
     private String correo;
     private boolean habilitado;
     private String password;
-    private String telefono;
+    private String username;
 
     public Usuario() {
     }
 
-    public Usuario(String correo, boolean habilitado, String password, String telefono) {
+    public Usuario(String correo, boolean habilitado, String password, String username) {
         this.correo = correo;
         this.habilitado = habilitado;
         this.password = password;
-        this.telefono = telefono;
+        this.username = username;
     }
 
     public int getIdUsuario() {
@@ -61,12 +61,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getUsername() {
+        return username;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setUsername(String username) {
+        this.username = username;
     }
     
     

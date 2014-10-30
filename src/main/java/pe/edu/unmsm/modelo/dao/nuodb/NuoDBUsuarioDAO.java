@@ -47,12 +47,12 @@ public class NuoDBUsuarioDAO implements UsuarioDAO {
     @Override
     public int insertUsuario(Usuario u) {
         try {
-            String sql = "insert into Usuario(correo, habilitado, password, telefono) values (?,?,?,?)";
+            String sql = "insert into Usuario(correo, habilitado, password, username) values (?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, u.getCorreo());
             stmt.setBoolean(2, u.isHabilitado());
             stmt.setString(3, u.getPassword());
-            stmt.setString(4, u.getTelefono());
+            stmt.setString(4, u.getUsername());
             return stmt.executeUpdate();
 
         } catch (SQLException ex) {
@@ -88,7 +88,7 @@ public class NuoDBUsuarioDAO implements UsuarioDAO {
                 u.setCorreo(rs.getString(2));
                 u.setHabilitado(rs.getBoolean(3));
                 u.setPassword(rs.getString(4));
-                u.setTelefono(rs.getString(5));
+                u.setUsername(rs.getString(5));
             }
         } catch (SQLException ex) {
             Logger.getLogger(NuoDBUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);

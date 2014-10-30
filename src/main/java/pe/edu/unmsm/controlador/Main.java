@@ -35,7 +35,7 @@ public class Main {
         Spark.post("/registro", (req,res)->{
                DAOFactory df=DAOFactory.getDAOFactory();
                UsuarioDAO usuarioDAO=df.getUsuarioDAO();
-               Usuario u=new Usuario(req.queryParams("correo"), true, req.queryParams("password"),req.queryParams("telefono"));
+               Usuario u=new Usuario(req.queryParams("email"), true, req.queryParams("password"),req.queryParams("username"));
                usuarioDAO.insertUsuario(u);
                res.redirect("/home_egresado.html");
                return null;
@@ -46,7 +46,7 @@ public class Main {
                UsuarioDAO usuarioDAO=df.getUsuarioDAO();
                Usuario u= null;
             try {
-                u = (Usuario)usuarioDAO.findUsuario(req.queryParams("correo"),req.queryParams("password"));
+                u = (Usuario)usuarioDAO.findUsuario(req.queryParams("email"),req.queryParams("password"));
             } catch (SQLException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
