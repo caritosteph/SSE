@@ -83,10 +83,10 @@
                                     <i class="fa fa-user"></i>
                                 </div>
                                 <div class="form-main">
-                                    <form>
+                                    <form action="/login" method="POST">
                                         <div class="form-group">
-                                            <input type="text" id="un_1" class="form-control" placeholder="Ingrese correo" required="required">
-                                            <input type="password" id="pw_1" class="form-control" placeholder="Contraseña" required="required">
+                                            <input type="email" name="correo" id="un_1" class="form-control" placeholder="Ingrese correo" >
+                                            <input type="password" name="password" id="pw_1" class="form-control" placeholder="Contraseña">
                                         </div>
                                         <button id="signIn_1" type="submit" class="btn btn-block signin">Logearse</button>
                                     </form>	

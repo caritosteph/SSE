@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pe.edu.unmsm.modelo.dao.nuodb;
 
 import java.sql.Connection;
@@ -29,7 +28,7 @@ public class NuoDBUsuarioDAO implements UsuarioDAO {
     Connection conn = NuoDBDaoFactory.createConnection();
 
     //Sentencias
-    private static final String SQL_FIND_BY_EMAIL_AND_PASSWORD = "select * usuario where correo = ? and password=? ";
+    private static final String SQL_FIND_BY_EMAIL_AND_PASSWORD = "select * from usuario where correo = ? and password=? ";
 
     @Override
     public List<Usuario> selectUsuarios() {
@@ -48,8 +47,8 @@ public class NuoDBUsuarioDAO implements UsuarioDAO {
     @Override
     public int insertUsuario(Usuario u) {
         try {
-            String sql="insert into Usuario(correo, habilitado, password, telefono) values (?,?,?,?)";
-            PreparedStatement stmt=conn.prepareStatement(sql);
+            String sql = "insert into Usuario(correo, habilitado, password, telefono) values (?,?,?,?)";
+            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, u.getCorreo());
             stmt.setBoolean(2, u.isHabilitado());
             stmt.setString(3, u.getPassword());
@@ -72,15 +71,19 @@ public class NuoDBUsuarioDAO implements UsuarioDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Usuario findUsuario(String sql,Object...valores) throws SQLException {
+    public Usuario findUsuario(String sql, Object... valores) throws SQLException {
         Usuario u = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
         try {
-            pstmt = conn.prepareStatement(SQL_FIND_BY_EMAIL_AND_PASSWORD);
+            pstmt = conn.prepareStatement(sql);
+            for (int i = 0; i < valores.length; i++) {
+                pstmt.setObject(i + 1, valores[i]);
+            }
             rs = pstmt.executeQuery();
             if (rs.next()) {
+                u = new Usuario();
                 u.setIdUsuario(rs.getInt(1));
                 u.setCorreo(rs.getString(2));
                 u.setHabilitado(rs.getBoolean(3));
@@ -96,7 +99,7 @@ public class NuoDBUsuarioDAO implements UsuarioDAO {
     }
 
     @Override
-    public Usuario findUsuario(String correo, String password) throws SQLException{
-        return findUsuario(SQL_FIND_BY_EMAIL_AND_PASSWORD,correo,password);
+    public Usuario findUsuario(String correo, String password) throws SQLException {
+        return findUsuario(SQL_FIND_BY_EMAIL_AND_PASSWORD, correo, password);
     }
 }

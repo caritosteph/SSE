@@ -10,7 +10,7 @@
 	// sign in form 1
 	$('#signIn_1').click(function (e) {  
 	   
-			var username = $.trim($('#un_1').val());
+            var username = $.trim($('#un_1').val());
 	    var password = $.trim($('#pw_1').val());
 
 	    if ( username === '' || password === '' ) {
