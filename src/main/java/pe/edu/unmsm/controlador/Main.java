@@ -40,7 +40,7 @@ public class Main {
                res.redirect("/home_egresado.html");
                return null;
        });
-        
+        /*
         Spark.post("/login", (req,res)->{
                DAOFactory df=DAOFactory.getDAOFactory();
                UsuarioDAO usuarioDAO=df.getUsuarioDAO();
@@ -51,7 +51,7 @@ public class Main {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
                return "Bienvenido"+u.getIdUsuario();
-       });
+       });*/
        
     }
 }

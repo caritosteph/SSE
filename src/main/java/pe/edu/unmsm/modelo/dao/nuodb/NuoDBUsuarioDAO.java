@@ -85,6 +85,7 @@ public class NuoDBUsuarioDAO implements UsuarioDAO {
                 u.setCorreo(rs.getString(2));
                 u.setHabilitado(rs.getBoolean(3));
                 u.setPassword(rs.getString(4));
+                u.setTelefono(rs.getString(5));
             }
         } catch (SQLException ex) {
             Logger.getLogger(NuoDBUsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
