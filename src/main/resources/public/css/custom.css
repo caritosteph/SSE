@@ -64,12 +64,13 @@ a {
 }
 #loggit .formNotice span {
     cursor: pointer;
-    color: #428BCA;
+    color: #6EBCFF;
 }
 #loggit .formNotice span:hover,
 #loggit .formNotice span:focus {
-    color: #2A6496;
+    color: #CDD4DA;
     text-decoration: underline;
+    
 }
 #loggit #regForm {
     display: none;
