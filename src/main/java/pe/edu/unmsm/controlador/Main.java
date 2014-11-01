@@ -8,6 +8,7 @@ package pe.edu.unmsm.controlador;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 import pe.edu.unmsm.modelo.dao.DAOFactory;
 import pe.edu.unmsm.modelo.dao.UsuarioDAO;
 import pe.edu.unmsm.modelo.dominio.Usuario;
@@ -39,6 +40,7 @@ public class Main {
         });
 
         Spark.post("/login", (req, res) -> {
+            HttpSession sesion = request.getSession();
             DAOFactory df = DAOFactory.getDAOFactory();
             UsuarioDAO usuarioDAO = df.getUsuarioDAO();
             Usuario u = null;
