@@ -55,6 +55,24 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.javalite</groupId>
+                <artifactId>db-migrator-maven-plugin</artifactId>
+                <version>1.4.9</version>
+                <configuration>
+                    <driver>com.nuodb.jdbc.Driver</driver>
+                    <url>jdbc:com.nuodb://localhost:48004/dbSSE?schema=SSE</url>
+                    <username>admin</username>
+                    <password>1234</password>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.nuodb.jdbc</groupId>
+                        <artifactId>nuodb-jdbc</artifactId>
+                        <version>2.0.4</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -69,9 +87,9 @@
             <version>2.0.0</version>
         </dependency>
         <dependency>
-        <groupId>com.nuodb.jdbc</groupId>
-        <artifactId>nuodb-jdbc</artifactId>
-        <version>2.0.4</version>
+            <groupId>com.nuodb.jdbc</groupId>
+            <artifactId>nuodb-jdbc</artifactId>
+            <version>2.0.4</version>
         </dependency>
         
         <dependency>

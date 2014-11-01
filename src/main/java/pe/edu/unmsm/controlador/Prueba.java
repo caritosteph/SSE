@@ -19,9 +19,9 @@ public class Prueba {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Base.open(PropertiesLoader.driver, PropertiesLoader.url, PropertiesLoader.prop);
+        Base.open(PropertiesLoader.driver, PropertiesLoader.url, PropertiesLoader.user,PropertiesLoader.password);
         Usuario u = new Usuario();
-        u.set("correo","comegalletas@jdbc.com");
+        u.set("correo","gianmarco@jdbc.com");
         u.set("password", "holamundo");
         u.set("habilitado", true);
         u.set("username", true);
