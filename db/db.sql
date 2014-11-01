@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS "SSE"."ADMINISTRADOR" (
 
 CREATE TABLE IF NOT EXISTS "SSE"."ALUMNO" (
 
-	"IDALUMNO" integer generated always as identity NOT NULL,
+	"id" integer generated always as identity NOT NULL,
 	"NOMBRES" varchar(50) NOT NULL,
 	"APELLIDOS" varchar(50) NOT NULL,
 	"DIRECCION" varchar(100) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS "SSE"."ALUMNO" (
 	"IDESTUDIO" integer NOT NULL,
 	"IDRESPUESTA" integer NOT NULL,
 	"IDPOSTULACION" integer NOT NULL
-	,PRIMARY KEY(IDALUMNO)
+	,PRIMARY KEY(ID)
 );
 
 
@@ -186,12 +186,12 @@ CREATE TABLE IF NOT EXISTS "SSE"."TRABAJO" (
 
 CREATE TABLE IF NOT EXISTS "SSE"."USUARIO" (
 
-	"IDUSUARIO" integer generated always as identity NOT NULL,
+	"id" integer generated always as identity NOT NULL,
 	"CORREO" varchar(50) NOT NULL,
 	"HABILITADO" boolean NOT NULL,
 	"PASSWORD" varchar(100) NOT NULL,
 	"USERNAME" string NOT NULL
-	,PRIMARY KEY(IDUSUARIO)
+	,PRIMARY KEY("id")
 );
 
 
