@@ -12,13 +12,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />	
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/custom.css">
         <!-- skin -->
         <link rel="stylesheet" href="skin/default.css">
         <link rel="shortcut icon" href="img/favicon.ico" />
+
+        <!--validation -->
+        <link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
+
     </head>
 
     <body>
@@ -64,7 +68,7 @@
                                 <h1><i class="fa fa-lock"></i> SSE</h1>
                                 <h3>Por favor <strong>Inicie Sesión </strong> o <strong>Regístrese</strong></h3>
 
-                                <form action="/login" id="loginForm" method="post" class="form-horizontal">
+                                <form action="/login" id="logForm" method="post" class="registerForm form-horizontal">
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="input-group">
@@ -92,14 +96,15 @@
                                         <div class="col-sm-5 submitWrap">
                                             <button type="submit" class="btn btn-primary btn-lg alert">Iniciar Sesión</button>
                                         </div>
-                                    </div>
-                                    <div class="form-group formNotice">
-                                        <div class="col-xs-12">
-                                            <p class="text-center">¿Aún no tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Registrate aquí</span></p>
+                                        <div class="form-group formNotice">
+                                            <div class="col-xs-12">
+                                                <p class="text-center">¿Aún no tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Registrate aquí</span></p>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </form>
-                                <form action="registro" id="regForm" method="post" class="form-horizontal">
+                                <form action="registro" id="regForm" method="post" class="registerForm form-horizontal">
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="input-group">
@@ -125,22 +130,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group formSubmit">
-                                        <div class="col-sm-7">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" autocomplete="off"> Acepto terminos y condiciones
-                                                </label>
-                                            </div>
+                                        <div class="formNotice col-sm-7">
+                                                <p class="hasAccount text-center">¿Ya tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Entra aquí</span></p>
                                         </div>
                                         <div class="col-sm-5 submitWrap">
                                             <button type="submit" class="btn btn-success btn-lg">Registrarse</button>
                                         </div>
+                                        
                                     </div>
-                                    <div class="form-group formNotice">
-                                        <div class="col-xs-12">
-                                            <p class="hasAccount text-center">Ya tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Entra aquí</span></p>
-                                        </div>
-                                    </div>
+
                                 </form>
                             </div>
                         </div>
@@ -233,11 +231,14 @@
         <script src="js/jquery.localscroll-1.2.7-min.js"></script>
         <script src="js/stellar.js"></script>
         <script src="js/jquery.appear.js"></script>
+        <script src="js/validate.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/bootbox.js"></script>
+        <script src="js/bootbox.min.js"></script>
+        <script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+        <script type="text/javascript" src="js/language/es_ES.js"></script>
+
         <script type="text/javascript">
             $(document).ready(function () {
-
                 $('.formNotice span').click(function () {
                     $("#logForm").toggle();
                     $("#regForm").toggle();
@@ -249,9 +250,61 @@
         </script>
         <script>
             $(document).ready(function () {
-                $('#loginForm').bootstrapValidator({
-                    message: 'This value is not valid',
-                    excluded: [':disabled'],
+                $('.registerForm').bootstrapValidator({
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        username: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/
+                                }
+
+                            }
+                        },
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                emailAddress: {
+                                }
+
+                            }
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                stringLength: {
+                                    min: 8
+                                }
+                            }
+                        },
+                        birthday: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                date: {
+                                    format: 'YYYY/MM/DD'
+                                }
+                            }
+                        },
+                        gender: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        }
+                    }
                     
                 });
             });

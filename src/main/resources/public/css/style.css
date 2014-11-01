@@ -63,10 +63,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 
 
 small {
-	font-size: 70%;
-	font-weight: 100;
+	font-size: 100%;
+	font-weight: bold;
+       
 }
-
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
+ color: #FF9F9D;
+}
 a:hover {
 	text-decoration: none;
 }
