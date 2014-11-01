@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package pe.edu.unmsm.modelo.dao;
+package pe.edu.unmsm.modelo;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -30,8 +30,9 @@ public class PropertiesLoader {
         try {
             prop.load(new FileInputStream(FILENAME));
         } catch (IOException ex) {
-            Logger.getLogger(DAOFactory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PropertiesLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
         url=prop.getProperty("url");
         driver=prop.getProperty("driver");
         user=prop.getProperty("user");

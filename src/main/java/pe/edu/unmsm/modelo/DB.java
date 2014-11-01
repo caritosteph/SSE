@@ -5,13 +5,14 @@
  */
 package pe.edu.unmsm.modelo;
 
-import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.annotations.Table;
+import org.javalite.activejdbc.Base;
 
 /**
  *
  * @author Sadhu
  */
-public class Usuario extends Model{
-    
+public class DB {
+    public static void conectar(){
+        Base.open(PropertiesLoader.driver, PropertiesLoader.url, PropertiesLoader.user,PropertiesLoader.password);
+    }
 }

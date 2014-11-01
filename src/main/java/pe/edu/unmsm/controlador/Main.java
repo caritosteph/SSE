@@ -5,16 +5,11 @@
  */
 package pe.edu.unmsm.controlador;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.http.HttpSession;
-import pe.edu.unmsm.modelo.dao.DAOFactory;
-import pe.edu.unmsm.modelo.dao.UsuarioDAO;
-import pe.edu.unmsm.modelo.dominio.Usuario;
-import spark.ModelAndView;
+import org.javalite.activejdbc.Base;
+import pe.edu.unmsm.modelo.DB;
+import pe.edu.unmsm.modelo.PropertiesLoader;
+import pe.edu.unmsm.modelo.Usuario;
 import spark.Spark;
-import spark.template.freemarker.FreeMarkerEngine;
 
 /**
  *
@@ -25,35 +20,32 @@ public class Main {
     public static void main(String[] args) {
 
         Spark.staticFileLocation("/public");
+        
 
         /*Spark.post("/registro",(req,res) ->{
             
          return new ModelAndView(null, "registrarse.ftl.html");
          }, new FreeMarkerEngine());*/
         Spark.post("/registro", (req, res) -> {
-            DAOFactory df = DAOFactory.getDAOFactory();
-            UsuarioDAO usuarioDAO = df.getUsuarioDAO();
-            Usuario u = new Usuario(req.queryParams("email"), true, req.queryParams("password"), req.queryParams("username"));
-            usuarioDAO.insertUsuario(u);
+            DB.conectar();
+            Usuario u =new Usuario();
+            u.set("username", req.queryParams("username"));
+            u.set("email", req.queryParams("email"));
+            u.set("password", req.queryParams("password"));
+            u.saveIt();
             res.redirect("/home_egresado.html");
             return null;
         });
 
         Spark.post("/login", (req, res) -> {
-            DAOFactory df = DAOFactory.getDAOFactory();
-            UsuarioDAO usuarioDAO = df.getUsuarioDAO();
-            Usuario u = null;
-            try {
-                u = (Usuario) usuarioDAO.findUsuario(req.queryParams("email"), req.queryParams("password"));
-                if (u != null) {
-                    res.redirect("/home_egresado.html");
-                } else {
-                   res.redirect("/index.html");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            DB.conectar();
+            Usuario u = Usuario.findFirst("email=? and password=?", req.queryParams("email"),req.queryParams("password"));
+           
+            if (u != null) {
+                res.redirect("/home_egresado.html");
+            } else {
+               res.redirect("/index.html");
             }
-
             return null;
         });
 
