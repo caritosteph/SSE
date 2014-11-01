@@ -40,7 +40,6 @@ public class Main {
         });
 
         Spark.post("/login", (req, res) -> {
-            HttpSession sesion = request.getSession();
             DAOFactory df = DAOFactory.getDAOFactory();
             UsuarioDAO usuarioDAO = df.getUsuarioDAO();
             Usuario u = null;
