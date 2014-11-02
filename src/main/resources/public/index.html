@@ -98,11 +98,12 @@
                                         </div>
                                         <div class="form-group formNotice">
                                             <div class="col-xs-6">
-                                                <p class="text-center">¿Olvido su contraseña? &nbsp;&nbsp;&nbsp;&nbsp;<span>Recuperar</span></p>
-                                            </div>
-                                            <div class="col-xs-6">
                                                 <p class="text-center">¿Aún no tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Registrate aquí</span></p>
                                             </div>
+                                            <div class="col-xs-6">
+                                                <p class="text-center">¿Olvido su contraseña? &nbsp;&nbsp;&nbsp;&nbsp;<span>Recuperar</span></p>
+                                            </div>
+
                                         </div>
                                     </div>
 
@@ -140,6 +141,32 @@
                                             <button type="submit" class="btn btn-success btn-lg">Registrarse</button>
                                         </div>
 
+                                    </div>
+
+                                </form>
+                                <form action="recuperar" id="recForm" method="post" class="registerForm form-horizontal">
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                                                <input type="email" name="email" class="form-control input-lg" placeholder="Correo Electronico" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group formSubmit">
+                                        <div class=" col-sm-5 submitWrap" >
+                                            <button type="submit" class="btn btn-danger btn-lg alert">Cambiar</button>
+                                        </div>
+                                        <div class="form-group formNotice">
+                                            <div class="col-xs-6">
+                                                <p class="hasAccount text-center">¿Ya tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Entre aquí</span></p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <p class="text-center">¿Aún no tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Registrate aquí</span></p>
+                                            </div>
+
+                                        </div>
                                     </div>
 
                                 </form>
@@ -245,6 +272,7 @@
                 $('.formNotice span').click(function () {
                     $("#logForm").toggle();
                     $("#regForm").toggle();
+                    $("#recForm").toggle();
                 });
 
 
