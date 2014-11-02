@@ -1019,10 +1019,12 @@ a.arrow-back{
   -o-transition: all 0.3s ease 0s;
   -ms-transition: all 0.3s ease 0s;
 }
-}
 
 a.configuration:hover {
   width: 100px;
+}
+a.arrow-back:hover {
+  width: 120px;
 }
 blockquote {
   line-height: 30px;
