@@ -5,9 +5,7 @@
  */
 package pe.edu.unmsm.controlador;
 
-import org.javalite.activejdbc.Base;
-import pe.edu.unmsm.modelo.DB;
-import pe.edu.unmsm.modelo.PropertiesLoader;
+import pe.edu.unmsm.modelo.Util;
 import pe.edu.unmsm.modelo.Usuario;
 import spark.Spark;
 
@@ -27,25 +25,35 @@ public class Main {
          return new ModelAndView(null, "registrarse.ftl.html");
          }, new FreeMarkerEngine());*/
         Spark.post("/registro", (req, res) -> {
-            DB.conectar();
+            Util.conectarBD();
             Usuario u =new Usuario();
             u.set("username", req.queryParams("username"));
             u.set("email", req.queryParams("email"));
-            u.set("password", req.queryParams("password"));
+            String password=req.queryParams("password");
+            String encriptada=Util.encriptar(password);
+            
+            u.set("password", encriptada);
             u.saveIt();
             res.redirect("/home_egresado.html");
             return null;
         });
 
         Spark.post("/login", (req, res) -> {
-            DB.conectar();
-            Usuario u = Usuario.findFirst("email=? and password=?", req.queryParams("email"),req.queryParams("password"));
+            Util.conectarBD();
+            String encriptada=Util.encriptar(req.queryParams("password"));
+            Usuario u = Usuario.findFirst("email=? and password=?", req.queryParams("email"),encriptada);
            
             if (u != null) {
                 res.redirect("/home_egresado.html");
             } else {
                res.redirect("/index.html");
             }
+            return null;
+        });
+        
+        Spark.post("/recuperar", (req, res) -> {
+            Util.conectarBD();
+            res.redirect("/home_egresado.html");
             return null;
         });
 
