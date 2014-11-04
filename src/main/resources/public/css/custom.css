@@ -58,7 +58,16 @@ a {
 #loggit .submitWrap {
     text-align: right;
 }
+
 #loggit .formNotice {
+    margin: 0;
+    font-size: 13px;
+}
+#loggit .formNotice2 {
+    margin: 0;
+    font-size: 13px;
+}
+#loggit .formNotice3 {
     margin: 0;
     font-size: 13px;
 }
@@ -66,8 +75,28 @@ a {
     cursor: pointer;
     color: #6EBCFF;
 }
+#loggit .formNotice2 span {
+    cursor: pointer;
+    color: #6EBCFF;
+}
+#loggit .formNotice3 span {
+    cursor: pointer;
+    color: #6EBCFF;
+}
 #loggit .formNotice span:hover,
 #loggit .formNotice span:focus {
+    color: #CDD4DA;
+    text-decoration: underline;
+    
+}
+#loggit .formNotice span:hover,
+#loggit .formNotice span:focus {
+    color: #CDD4DA;
+    text-decoration: underline;
+    
+}
+#loggit .formNotice3 span:hover,
+#loggit .formNotice3 span:focus {
     color: #CDD4DA;
     text-decoration: underline;
     
