@@ -89,8 +89,8 @@ a {
     text-decoration: underline;
     
 }
-#loggit .formNotice span:hover,
-#loggit .formNotice span:focus {
+#loggit .formNotice2 span:hover,
+#loggit .formNotice2 span:focus {
     color: #CDD4DA;
     text-decoration: underline;
     
