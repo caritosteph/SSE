@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Perfil</title>
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
 
         <!-- CSS Font Icon and Plugins -->
         <link href="css/font-awesome.css" rel="stylesheet">
@@ -69,8 +69,9 @@
                                 ===================================-->
 
                                 <div class="box-note">
-                                    <a href="#" id="box" data-type="text" data-placement="rigth"  >
-                                        Hola todo el mundo como estan,cualquier cosa envienve correo</a>
+                                    <a href="#" id="box" data-type="text" class="editable editable-click" style="color: white" data-placement="rigth">
+                                        Hola todo el mundo como estan,cualquier cosa me envian un correo
+                                    </a>
                                 </div>
                                 <!-- =========
                                 End Note Slider
@@ -93,28 +94,27 @@
                                 <!-- =========
                                 Start Show Yor Name Section
                                 ===================================-->
-                                <h1 class="name">Carlos Rojas<small>Estudiante de Ingenieria de Software</small></h1>
+                                <h1 class="name">
+                                    <a href="#" id="fullname" data-type="text" data-mode="inline" >Carlos Rojas</a>
+                                    <a href="#" id="career" data-type="text" data-mode="inline" >
+                                        <small>Estudiante de Ingenieria de Software</small>
+                                    </a>
+                                </h1>
                                 <img src="img/arrow-down.png" alt="" class="img-arrow">
                                 <a href="javascript:void(0)" class="btn btn-flat " id="open-content">Acerca de Mi</a>
                                 <img src="img/arrow-down.png" alt="" class="img-arrow">
                                 <!-- =========
                                 Start Show Yor Name Section
                                 ===================================-->
-
                             </div>
-
-
                         </header>
                         <!-- =========
                         End portrait section
                         ===================================-->
-
-
                         <!-- =========
                         Start Content section
                         ===================================-->
                         <section class="content" id="main-content">
-
                             <!-- =========
                             Start navigation section
                             ===================================-->
@@ -131,19 +131,15 @@
                             End navigation section
                             ===================================-->
 
-
                             <!-- =========
                             Start tab content section
                             ===================================-->
                             <div class="tab-content">
-
-
                                 <!-- =========
                                 Start About tab content section
                                 ===================================-->
                                 <div id='about' class="tab-pane  fade in  active">
                                     <div class="body-content">
-
                                         <!-- =========
                                         Start About your self section
                                         ===================================-->
@@ -608,10 +604,10 @@
         <div id="wait-page" class="text-center">Loading...</div>
 
         <a href="perfil.html" class="configuration">
-            <i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Guardar
+            <i class="glyphicon glyphicon-pencil"></i>&nbsp;Guardar
         </a>
         <a href="perfil.html" class="arrow-back">
-            <i class="glyphicon glyphicon-arrow-left"></i>&nbsp;&nbsp;Regresar
+            <i class="glyphicon glyphicon-arrow-left"></i>&nbsp;&nbsp;&nbsp;Regresar
         </a>
 
 
@@ -625,7 +621,6 @@
         ===================================-->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery.js"></script>
 
         <script src="js/jquery-2.1.1.min.js"></script>
         <!-- jQuery animation page loader -->
@@ -647,11 +642,22 @@
 
         <!-- para editar -->
         <script src="js/bootstrap-editable.js"></script>
+        <script src="js/miJS.js"></script>  
+        <script>
+
+
+        </script>
         <script>
             $(function () {
-                $('#box').editable({
+                $('#fullname').editable({
                     url: '/post',
                     title: 'Ingrese Mensaje:',
+                });
+                $('#box').editable({
+                    url: '/post',
+                    type: 'text',
+                    name: 'Mensaje',
+                    title: 'Ingrese Mensaje:'
                 });
             });
         </script>
