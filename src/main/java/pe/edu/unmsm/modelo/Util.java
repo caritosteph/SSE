@@ -44,12 +44,7 @@ public class Util {
         return null;
     }
     
-    public static void enviarCorreo(){
-       // Recipient's email ID needs to be mentioned.
-      String to = "carito.ulfe@gmail.com";//change accordingly
-
-      // Sender's email ID needs to be mentioned
-      String from = "carlos.sadhu@gmail.com";//change accordingly
+    public static void enviarCorreo(String from, String to, String asunto,String mensaje){
       final String username = "carlos.sadhu";//change accordingly
       final String password = "yosoyfitopaez";//change accordingly
 
@@ -83,23 +78,17 @@ public class Util {
          InternetAddress.parse(to));
 
          // Set Subject: header field
-         message.setSubject("Testing Subject");
-
-         // Now set the actual message
-         message.setText("Hello, this is sample for to check send "
-            + "email using JavaMailAPI ");
+         message.setSubject(asunto);
+         
+         // Send the actual HTML message, as big as you like
+         message.setContent(mensaje,"text/html");
 
          // Send message
          Transport.send(message);
 
-         System.out.println("Sent message successfully....");
 
       } catch (MessagingException e) {
             throw new RuntimeException(e);
       }
-    }
-    
-    public static void main(String[] args) {
-        enviarCorreo();
     }
 }
