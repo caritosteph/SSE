@@ -10,7 +10,6 @@
     margin-bottom: 0; /* overwrites bootstrap margin */
     white-space: nowrap; /* prevent wrapping buttons on new line */
     line-height: 20px; /* overwriting bootstrap line-height. See #133 */
-    width: 200px;
 }
 
 /* 

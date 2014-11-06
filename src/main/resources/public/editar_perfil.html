@@ -83,6 +83,7 @@
                                 <div class="portrait-img-area">
                                     <img src="img/avatar-.jpg" alt="avatar" class="avatar"/>
                                     <div class="profile-links">
+                                        
                                         <a href="https://www.facebook.com/ksadhu89" class="facebook"  data-toggle="tooltip" data-placement="left" title="Facebook"><i class="fa fa-facebook"></i></a>
                                         <a href="" class="twitter"  data-toggle="tooltip" data-placement="right" title="Twitter"><i class="fa fa-twitter"></i></a>
                                     </div>
@@ -96,6 +97,8 @@
                                 ===================================-->
                                 <h1 class="name">
                                     <a href="#" id="fullname" data-type="text" data-mode="inline" >Carlos Rojas</a>
+                                </h1>
+                                <h1 class="name">
                                     <a href="#" id="career" data-type="text" data-mode="inline" >
                                         <small>Estudiante de Ingenieria de Software</small>
                                     </a>
@@ -654,6 +657,12 @@
                     title: 'Ingrese Mensaje:',
                 });
                 $('#box').editable({
+                    url: '/post',
+                    type: 'text',
+                    name: 'Mensaje',
+                    title: 'Ingrese Mensaje:'
+                });
+                $('#career').editable({
                     url: '/post',
                     type: 'text',
                     name: 'Mensaje',
