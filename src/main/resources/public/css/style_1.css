@@ -90,7 +90,7 @@ Header Section
 }
 .portrait .box-note {
   position: relative;
-  max-width: 350px;
+  max-width: 400px;
   margin: 30px auto;
   background: #249ebd;
   padding: 10px 15px;
@@ -113,7 +113,7 @@ Header Section
   position: relative;
 }
 .portrait .portrait-img-area .avatar {
-  width: 140px;
+  width: 120px;
 }
 .portrait .portrait-img-area .profile-links a {
   position: absolute;
@@ -143,9 +143,10 @@ Header Section
 }
 .portrait .name small {
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 3px;
 }
+
 /* end portrait section */
 /* ======================================= 
 Main Section Section 
