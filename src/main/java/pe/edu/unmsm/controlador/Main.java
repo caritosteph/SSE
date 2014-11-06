@@ -7,6 +7,7 @@ package pe.edu.unmsm.controlador;
 
 import pe.edu.unmsm.modelo.Util;
 import pe.edu.unmsm.modelo.Usuario;
+import spark.Session;
 import spark.Spark;
 
 /**
@@ -45,6 +46,9 @@ public class Main {
            
             if (u != null) {
                 res.redirect("/home_egresado.html");
+                Session s=req.session(true);
+                s.attribute("email", req.queryParams("email"));
+                
             } else {
                res.redirect("/index.html");
             }
@@ -52,10 +56,65 @@ public class Main {
         });
         
         Spark.post("/recuperar", (req, res) -> {
+            String email=req.queryParams("email");
             Util.conectarBD();
+            Usuario u=Usuario.findFirst("email=?", email);
+            String password=u.getString("password");
+            String mensaje="<a href='http://localhost:4567/cambiar_contrasena?email="+email+"&token="+password+"'>Enlace</a>";
+            Util.enviarCorreo("SSE@gmail.com", email, "Recuperar contrasena", mensaje);
             res.redirect("/home_egresado.html");
             return null;
         });
+        
+        Spark.get("/cambiar_contrasena/:email/:contrasena", (req, res) -> {
+            String nueva=req.queryParams("nueva");
+            String confirmacion=req.queryParams("confirmacion");
+            if(nueva.equals(confirmacion)){
+                Util.conectarBD();
+                String email=req.session().attribute("email");
+                Usuario u=Usuario.findFirst("email=?", email);
+                u.set("password", Util.encriptar(nueva));
+                u.saveIt();
+            }
+            else{
+               res.redirect("/home_egresado.html");
+            }
+            return null;
+        });
+        
+        Spark.get("/cambiar_contrasena", (req, res) -> {
+            String nueva=req.queryParams("nueva");
+            String confirmacion=req.queryParams("confirmacion");
+            if(nueva.equals(confirmacion)){
+                Util.conectarBD();
+                String email=req.session().attribute("email");
+                Usuario u=Usuario.findFirst("email=?", email);
+                u.set("password", Util.encriptar(nueva));
+                u.saveIt();
+            }
+            else{
+               res.redirect("/home_egresado.html");
+            }
+            return null;
+        });
+        /*
+        Spark.post("/cambiar_contrasena", (req, res) -> {
+            String nueva=req.queryParams("nueva");
+            String confirmacion=req.queryParams("confirmacion");
+            if(nueva.equals(confirmacion)){
+                Util.conectarBD();
+                String email=req.session().attribute("email");
+                Usuario u=Usuario.findFirst("email=?", email);
+                u.set("password", Util.encriptar(nueva));
+                u.saveIt();
+            }
+            else{
+               res.redirect("/home_egresado.html");
+            }
+            return null;
+        });*/
+        
+        
 
     }
 }
