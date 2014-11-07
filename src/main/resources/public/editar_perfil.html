@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,14 +14,13 @@
         <link href="css/animation_1.css" rel="stylesheet">
         <!-- Theme of Design -->
         <link href="css/style_1.css" rel="stylesheet">   
-        <link href="css/jquery.fileupload.css" rel="stylesheet">  
         <link rel="stylesheet" href="css/style.css">
-
         <link rel="stylesheet" href="skin/default.css">
         <link rel="shortcut icon" href="img/favicon.ico" />
-
         <!-- para editar -->
         <link href="css/bootstrap-editable.css" rel="stylesheet">
+        <!-- subir imagen -->
+        <link rel="stylesheet" href="css/main_1.css">
     <body>
         <section id="header" ></section>
         <div class="navbar navbar-top" role="navigation" >
@@ -42,51 +41,44 @@
                     </ul>
                 </div><!--/.navbar-collapse -->
             </div>
-
         </div>
         <br><br>
         <div id="wrapper">
-
             <div class="container" >
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1">
                         <header class="portrait">
                             <div class="bg-line"></div>
                             <div class="body-portrait">
+                                 <br>
                                 <div class="col-md-12">
-                                    <br><br>
+                                    <br>
                                     <div class="col-md-4">
-                                        <br>
-                                        <div class="col-md-12 ">
-                                            <img class="portrait-img-area" src="img/avatar-.jpg"  alt="avatar" class="avatar"/>
-                                        </div>
-                                        
                                         <div class="col-md-12">
-                                            <form id="fileupload" action="" method="POST" enctype="multipart/form-data" class="">
-                                                <noscript>&lt;input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"&gt;</noscript>
-                                                <div class="row fileupload-buttonbar">
-                                                    <div class="col-lg-7">
-                                                        <!-- The fileinput-button span is used to style the file input field as button -->
-                                                        <span class="btn btn-success fileinput-button">
-                                                            <i class="glyphicon glyphicon-plus"></i>
-                                                            <span>Subir imagen</span>
-                                                            <input type="file" name="files[]" multiple="">
+                                            <br>
+                                            <div class="features">
+                                                <div flow-init="{singleFile:true}"
+                                                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                                                    <div class="thumbnail" ng-show="!$flow.files.length">
+                                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                                                    </div>
+                                                    <div class="thumbnail" ng-show="$flow.files.length">
+                                                        <img flow-img="$flow.files[0]" />
+                                                    </div>
+                                                    <div>
+                                                        <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn>Seleccionar imagen</span>
+                                                        <span class="btn btn-info" ng-show="$flow.files.length" flow-btn>Cambiar</span>
+                                                        <span class="btn btn-danger" ng-show="$flow.files.length"
+                                                              ng-click="$flow.cancel()">
+                                                            Eliminar
                                                         </span>
-                                                        <span class="fileupload-process"></span>
                                                     </div>
-                                                    <div class="col-lg-5 fileupload-progress fade">
-                                                        <!-- The global progress bar -->
-                                                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                                            <div class="progress-bar progress-bar-success" style="width: 0%;"></div>
-                                                        </div>
-                                                        <div class="progress-extended">&nbsp;</div>
-                                                    </div>
+                                                    <p>
+                                                        Solo archivos: PNG,GIF,JPG,JEPG.
+                                                    </p>
                                                 </div>
-                                                <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
-                                            </form>
+                                            </div>
                                         </div>
-
-
                                     </div>
                                     <br>
                                     <div class="col-md-8">
@@ -118,7 +110,6 @@
                                         </table>
                                     </div>
                                 </div>
-
                                 <div class="col-md-12">
                                     <img src="img/arrow-down.png" alt="" class="img-arrow">
                                     <a href="javascript:void(0)" class="btn btn-flat " id="open-content">Acerca de Mi</a>
@@ -133,29 +124,13 @@
                         Start Content section
                         ===================================-->
                         <section class="content" id="main-content">
-                            <!-- =========
-                            Start navigation section
-                            ===================================-->
                             <nav id='navigation'>
                                 <ul class="navigation-list clearfix list-unstyled">
-                                    <li class="active"><a href="#about" data-toggle="tab" data-menu="about"><i class="glyphicon glyphicon-user"></i> <span> Acerca de Mi</span></a></li>
-                                    <li><a href="#resume" data-toggle="tab" data-menu="resume"><i class="glyphicon glyphicon-file"></i> <span> Curriculum</span></a></li>
-
-                                    <li><a href="#contact" data-toggle="tab" data-menu="contact"><i class="glyphicon glyphicon-envelope"></i>
-                                            <span> Contacto</span></a></li>
+                                    <li class="active" style="width: 480px;"><a href="#about" data-toggle="tab" data-menu="about"><i class="glyphicon glyphicon-user"></i> <span> Acerca de Mi</span></a></li>
+                                    <li><a href="#resume" data-toggle="tab" data-menu="resume" style="width: 480px;"><i class="glyphicon glyphicon-file"></i> <span> Curriculum</span></a></li>
                                 </ul>
                             </nav>
-                            <!-- =========
-                            End navigation section
-                            ===================================-->
-
-                            <!-- =========
-                            Start tab content section
-                            ===================================-->
                             <div class="tab-content">
-                                <!-- =========
-                                Start About tab content section
-                                ===================================-->
                                 <div id='about' class="tab-pane  fade in  active">
                                     <div class="body-content">
                                         <!-- =========
@@ -167,11 +142,12 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="mini-desc">
-                                                    <h2 class="title">Hola, Mi nombre es Carlos Rojas!
-                                                    </h2>
+                                                    <a href="#"  data-type="text" data-mode="inline" class="editar editable editable-click"><h2 class="title">Hola, Mi nombre es Carlos Rojas!</h2></a>
                                                     <p>Hola mi nombre es Carlos Rojas, soy programador web y movil.
-                                                        Estudié en San Marcos, sobre todo el estudio de programación web y movil.  </p>
-                                                    <p>He estado trabajando en diferentes tipos de proyectos como: marca, diseño web, el código, la ilustración. Tengo una pasión para la creación de todo tipo de cosas relacionadas con las artes visuales, como el tipo, películas, fotos ...</p>
+                                                        Estudié en San Marcos, sobre todo el estudio de programación web y movil.  
+                                                    </p>
+                                                    <p>He estado trabajando en diferentes tipos de proyectos como: marca, diseño web, el código, la ilustración. Tengo una pasión para la creación de todo tipo de cosas relacionadas con las artes visuales, como el tipo, películas, fotos ...
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -411,10 +387,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- =========
-                                                End Time line section
-                                                ===================================-->
-
                                             </div>
 
                                             <div class="col-md-4">
@@ -464,18 +436,10 @@
                                                             </div>
                                                         </li>
                                                     </ul>
-                                                    <!-- =========
-                                                    End your Skills Progress bars section
-                                                    ===================================-->
-
                                                 </div>
                                                 <div class="deviter"></div>
                                                 <h3 class="title with-icon"><span class="fa fa-pencil icn-title"></span> Graphic Skills</h3>
                                                 <div class="box-block">
-
-                                                    <!-- =========
-                                                    STart your Skills Progress point bars section
-                                                    ===================================-->
                                                     <ul class="list-unstyled list-points-progress">
                                                         <li>
                                                             <span class="caption-skill">PhotoShop</span>
@@ -499,11 +463,6 @@
                                                             </div>
                                                         </li>
                                                     </ul>
-                                                    <!-- =========
-                                                    STart your Skills Progress point bars section
-                                                    ===================================-->
-
-
                                                 </div>
                                                 <div class="deviter"></div>
                                                 <h3 class="title with-icon"><span class="fa fa-globe icn-title"></span> Idiomas</h3>
@@ -524,198 +483,62 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
-
-                                </div>
-                                <!-- =========
-                                End resume tab content section
-                                ===================================-->
-
-
-
-
-                                <!-- =========
-                                Start Contact tab content section
-                                ===================================-->
-                                <div id='contact' class="tab-pane fade">
-                                    <div class="body-content">
-                                        <h3 class="title with-icon"><span class="fa fa-coffee icn-title"></span> Ponerse en contacto</h3>
-
-                                        <!-- =========
-                                        Start form contact section
-                                        ===================================-->
-                                        <form >
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="FullnameForm">Nombre Completo</label>
-                                                        <input type="text" class="form-control" id="FullnameForm" placeholder="Ingrese nombre completo">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="CompanyForm">Empresa</label>
-                                                        <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese Empresa">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="EmailForm">Correo Electrónico</label>
-                                                        <input type="email" class="form-control" id="EmailForm" placeholder="Ingrese correo electrónico">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="PhoneForm">Teléfono</label>
-                                                        <input type="text" class="form-control" id="PhoneForm" placeholder="Ingrese Teléfono">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="MesageForm">Mensaje</label>
-                                                <textarea class="form-control" rows="8" id="MesageForm" placeholder="Ingrese Mensaje"></textarea>
-                                            </div>
-                                            <button type="submit" class="btn btn-flat btn-lg"><span class="glyphicon glyphicon-send"></span> Enviar</button>
-                                        </form>
-                                        <!-- =========
-                                        End form contact section
-                                        ===================================-->
-
                                     </div>
                                 </div>
-
-
                             </div>
-                            <!-- =========
-                            End tab content section
-                            ===================================-->
-
-
                             <a id="backtotop" href="#"><i class="fa fa-arrow-up"></i></a>
-
                             <div class="bg-line"></div>
                         </section>
-                        <!-- =========
-                        End Content section
-                        ===================================-->
-
-
-                    </div>
-
+                     </div>
                 </div>
-
-
             </div>
-
         </div>
-
-        <!-- =========
-        End Wrapper Page
-        ===================================-->
-
-        <!-- =========
-        Text Showup Wait Document Ready
-        ===================================-->
         <div id="wait-page" class="text-center">Loading...</div>
-
         <a href="perfil.html" class="configuration">
             <i class="glyphicon glyphicon-pencil"></i>&nbsp;Guardar
         </a>
         <a href="perfil.html" class="arrow-back">
             <i class="glyphicon glyphicon-arrow-left"></i>&nbsp;&nbsp;&nbsp;Regresar
         </a>
-
-
-
-
-
-
-
         <!-- =========
-        Javascript load 
+        Javascript 
         ===================================-->
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
         <script src="js/jquery-2.1.1.min.js"></script>
-        <!-- jQuery animation page loader -->
         <script src='js/pace.min.js'></script>
-
-        <!-- JS maps for gmap3 JavaScript plugins) -->
-
-
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.js"></script>
-
         <script src="js/jquery.autofix_anything.js"></script>
         <script src="js/jquery.mixitup.min.js"></script>
-
         <script src='js/jquery.magnific-popup.min.js'></script>
-
         <!-- Configuration app js -->
         <script src="js/app.js"></script>
-
         <!-- para editar -->
         <script src="js/bootstrap-editable.js"></script>
-        <script src="js/miJS.js"></script>  
-        <script src="js/vendor/jquery.ui.widget.js"></script>
-        <script src="js/jquery.iframe-transport.js"></script>
-        <script src="js/jquery.fileupload.js"></script>
-        <script src="js/jquery.fileupload-image.js"></script>
-        <script src="js/jquery.fileupload-process.js"></script>
+        <!-- subir imagen -->
+        <script src="js/angular.js"></script>
+        <script src="js/flow.js"></script>
+        <script src="js/fusty-flow-factory.js"></script>
+        <script src="js/ng-flow.js"></script>
+        <script src="js/app_1.js"></script>
         <script>
-            $(function () {
-                $('#fileupload').fileupload({
-                    url: '//jquery-file-upload.appspot.com/',
-                    dataType: 'json',
-                    done: function (e, data) {
-                        $.each(data.result.files, function (index, file) {
-                            $('<p/>').text(file.name).appendTo(document.body);
-                        });
-                    },
-                    progressall: function (e, data) {
-                        var progress = parseInt(data.loaded / data.total * 100, 10);
-                        $('#progress .bar').css(
-                                'width',
-                                progress + '%'
-                                );
-                    },
-                    add: function (e, data) {
-                        data.context = $('<button/>').text('Upload')
-                                .appendTo(document.body)
-                                .click(function () {
-                                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
-                                    data.submit();
-                                });
-                    },
-                });
-            });</script>
-        <script>
-            $(function () {
-                $('.editar').editable({
+             $(function () {
+                  $('.editar').editable({
+                      url: '/post',
+                       title: 'Ingrese Mensaje:',
+                  });
+                   $('#box').editable({
                     url: '/post',
-                    title: 'Ingrese Mensaje:',
+                      type: 'text',
+                      name: 'Mensaje',
+                title: 'Ingrese Mensaje:'
+           });
+                     $('#career').editable({
+                        url: '/post',
+                         type: 'text',
+                        name: 'Mensaje',
+                        title: 'Ingrese Mensaje:'
+                    });
                 });
-                $('#box').editable({
-                    url: '/post',
-                    type: 'text',
-                    name: 'Mensaje',
-                    title: 'Ingrese Mensaje:'
-                });
-                $('#career').editable({
-                    url: '/post',
-                    type: 'text',
-                    name: 'Mensaje',
-                    title: 'Ingrese Mensaje:'
-                });
-            });
         </script>
         <!-- fin para editar -->
-
-
-
     </body>
 </html>
