@@ -60,13 +60,22 @@ public class Main {
             Util.conectarBD();
             Usuario u=Usuario.findFirst("email=?", email);
             String password=u.getString("password");
-            String mensaje="<a href='http://localhost:4567/cambiar_contrasena?email="+email+"&token="+password+"'>Enlace</a>";
+            String mensaje="<a href='http://localhost:4567/cambiar_contrasena/"+email+"/"+password+"'>Recuperar contraseña</a>";
             Util.enviarCorreo("SSE@gmail.com", email, "Recuperar contrasena", mensaje);
-            res.redirect("/home_egresado.html");
+            return "Se le ha mandado correo";
+        });
+        
+        Spark.get("/cambiar_contrasena/:email/:password", (req, res) -> {
+            String email=req.params(":email");
+            String password=req.params(":password");
+            Session s=req.session(true);
+            s.attribute("email", email);
+            s.attribute("password", password);
+            res.redirect("/cambiar_contrasena.html");
             return null;
         });
         
-        Spark.get("/cambiar_contrasena/:email/:contrasena", (req, res) -> {
+        Spark.post("/cambiar_contrasena", (req, res) -> {
             String nueva=req.queryParams("nueva");
             String confirmacion=req.queryParams("confirmacion");
             if(nueva.equals(confirmacion)){
@@ -75,27 +84,11 @@ public class Main {
                 Usuario u=Usuario.findFirst("email=?", email);
                 u.set("password", Util.encriptar(nueva));
                 u.saveIt();
+                return "Contraseña cambiada";
             }
             else{
-               res.redirect("/home_egresado.html");
+               return "No se pudo cambiar contraseña";
             }
-            return null;
-        });
-        
-        Spark.get("/cambiar_contrasena", (req, res) -> {
-            String nueva=req.queryParams("nueva");
-            String confirmacion=req.queryParams("confirmacion");
-            if(nueva.equals(confirmacion)){
-                Util.conectarBD();
-                String email=req.session().attribute("email");
-                Usuario u=Usuario.findFirst("email=?", email);
-                u.set("password", Util.encriptar(nueva));
-                u.saveIt();
-            }
-            else{
-               res.redirect("/home_egresado.html");
-            }
-            return null;
         });
         /*
         Spark.post("/cambiar_contrasena", (req, res) -> {
