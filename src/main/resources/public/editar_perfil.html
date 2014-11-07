@@ -138,15 +138,20 @@
                                         ===================================-->
                                         <div class="row">
                                             <div class="col-md-3 text-center">
-                                                <img src="img/avatar-.jpg" alt="avatar" class="img-responsive img-profile">
+                                                <div flow-init="{singleFile:true}"
+                                                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                                                    <div class="thumbnail" ng-show="!$flow.files.length">
+                                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                                                    </div>
+                                                    <div class="thumbnail" ng-show="$flow.files.length">
+                                                        <img flow-img="$flow.files[0]" />
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="mini-desc">
-                                                    <a href="#"  data-type="text" data-mode="inline" class="editar editable editable-click"><h2 class="title">Hola, Mi nombre es Carlos Rojas!</h2></a>
-                                                    <p>Hola mi nombre es Carlos Rojas, soy programador web y movil.
-                                                        Estudié en San Marcos, sobre todo el estudio de programación web y movil.  
-                                                    </p>
-                                                    <p>He estado trabajando en diferentes tipos de proyectos como: marca, diseño web, el código, la ilustración. Tengo una pasión para la creación de todo tipo de cosas relacionadas con las artes visuales, como el tipo, películas, fotos ...
+                                                    <h2 class="title"><a href="#"  data-type="text" data-mode="inline" class="editar editable editable-click">Hola, Mi nombre es Carlos Rojas!</a></h2>
+                                                    <p><a href="#"  data-type="textarea" data-mode="inline" class="editar editable editable-click">Hola mi nombre es Carlos Rojas, soy programador web y movil.Estudié en San Marcos, sobre todo el estudio de programación web y movil.He estado trabajando en diferentes tipos de proyectos como: marca, diseño web, el código, la ilustración. Tengo una pasión para la creación de todo tipo de cosas relacionadas con las artes visuales, como el tipo, películas, fotos ...  </a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -523,20 +528,11 @@
              $(function () {
                   $('.editar').editable({
                       url: '/post',
-                       title: 'Ingrese Mensaje:',
+                      validate: function(value) {
+                        if($.trim(value) == '') return 'Por favor introduce un valor';
+                        }
                   });
-                   $('#box').editable({
-                    url: '/post',
-                      type: 'text',
-                      name: 'Mensaje',
-                title: 'Ingrese Mensaje:'
-           });
-                     $('#career').editable({
-                        url: '/post',
-                         type: 'text',
-                        name: 'Mensaje',
-                        title: 'Ingrese Mensaje:'
-                    });
+                   
                 });
         </script>
         <!-- fin para editar -->
