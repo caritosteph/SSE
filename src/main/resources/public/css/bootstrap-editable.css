@@ -17,7 +17,7 @@
   See: https://github.com/vitalets/x-editable/issues/393
 */
 .editableform .form-control {
-    width: 300px;
+    width: 280px;
 }
 
 .editable-buttons {
@@ -43,7 +43,7 @@
     /* display-inline emulation for IE7*/
     zoom: 1; 
     *display: inline;   
-    width: 300px;
+    width: 280px;
 }
 
 
