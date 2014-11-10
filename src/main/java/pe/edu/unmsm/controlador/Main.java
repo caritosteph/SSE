@@ -39,15 +39,22 @@ public class Main {
             Usuario existente=Usuario.findFirst("username=?", req.queryParams("username"));
             if(existente!=null){
                 HashMap<Object, Object> data=new HashMap<>();
-                data.put("error", "El username ingresado ya ha sido registrado antes");
+                data.put("error", "El nombre de usuario ya ha sido registrado antes");
                 return new ModelAndView(data, "index.ftl.html");
             }
-                
+            
+            existente=Usuario.findFirst("email=?", req.queryParams("email"));
+            if(existente!=null){
+                HashMap<Object, Object> data=new HashMap<>();
+                data.put("error", "El correo ya ha sido registrado antes");
+                return new ModelAndView(data, "index.ftl.html");
+            }
+              
             u.set("password", encriptada);
             u.saveIt();
-            res.redirect("/home_egresado.html");
-            
-            return new ModelAndView(null, "index.ftl.html");
+            HashMap<Object, Object> data=new HashMap<>();
+            data.put("error", "Ud. ha sido registrado satisfactoriamente");
+            return new ModelAndView(data, "index.ftl.html");
         },new FreeMarkerEngine());
 
         Spark.post("/login", (req, res) -> {
