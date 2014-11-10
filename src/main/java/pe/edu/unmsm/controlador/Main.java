@@ -5,10 +5,13 @@
  */
 package pe.edu.unmsm.controlador;
 
+import java.util.HashMap;
 import pe.edu.unmsm.modelo.Util;
 import pe.edu.unmsm.modelo.Usuario;
+import spark.ModelAndView;
 import spark.Session;
 import spark.Spark;
+import spark.template.freemarker.FreeMarkerEngine;
 
 /**
  *
@@ -19,12 +22,12 @@ public class Main {
     public static void main(String[] args) {
 
         Spark.staticFileLocation("/public");
-        
 
-        /*Spark.post("/registro",(req,res) ->{
+        Spark.get("/",(req,res) ->{
             
-         return new ModelAndView(null, "registrarse.ftl.html");
-         }, new FreeMarkerEngine());*/
+         return new ModelAndView(null, "index.ftl.html");
+         },new FreeMarkerEngine());
+        
         Spark.post("/registro", (req, res) -> {
             Util.conectarBD();
             Usuario u =new Usuario();
@@ -33,11 +36,19 @@ public class Main {
             String password=req.queryParams("password");
             String encriptada=Util.encriptar(password);
             
+            Usuario existente=Usuario.findFirst("username=?", req.queryParams("username"));
+            if(existente!=null){
+                HashMap<Object, Object> data=new HashMap<>();
+                data.put("error", "El username ingresado ya ha sido registrado antes");
+                return new ModelAndView(data, "index.ftl.html");
+            }
+                
             u.set("password", encriptada);
             u.saveIt();
             res.redirect("/home_egresado.html");
-            return null;
-        });
+            
+            return new ModelAndView(null, "index.ftl.html");
+        },new FreeMarkerEngine());
 
         Spark.post("/login", (req, res) -> {
             Util.conectarBD();
