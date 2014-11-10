@@ -159,7 +159,7 @@
                                     </div>
                                     <div class="form-group formSubmit">
                                         <div class="formNotice2 col-sm-7">
-                                                    <p class="hasAccount text-center">¿Ya tienes una cuenta?&nbsp;&nbsp;<span>Entre aquí</span></p>
+                                            <p class="hasAccount text-center">¿Ya tienes una cuenta?&nbsp;&nbsp;<span>Entre aquí</span></p>
                                         </div>
                                         <div class="col-sm-5 submitWrap">
                                             <button type="submit" class="btn btn-danger btn-lg">Restablecer</button>
@@ -222,25 +222,21 @@
 
             </div>
         </section>
+        
         <section id="section-about" class="section appear clearfix">
             <div class="container"> 
                 <div class="row mar-bot40">
-
-                    <div class="col-md-6 ">
-                        <form action="recuperar" id="recForm" method="post" class="registerForm form-horizontal">
+                    <div class="col-md-6">
+                        <form class=" " role="search" id="autocompleteForm" name="autocompleteForm" action="" method="post">
                             <div class="form-group" style="margin-top:200px">
-                                <div class="col-xs-12">
+                                <div class="col-lg-12">
                                     <div class="input-group">
-                                        <input name="email" class="form-control input-lg" placeholder="Nombre" autocomplete="off">
+                                        <input type="text" class="form-control" style="border: 1px solid #A8A3A3">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button" style="padding-top:8px;"><i class="glyphicon glyphicon-search"></i></button>
+                                        </span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group formSubmit">
-                 
-                                <div class="col-sm-5 submitWrap">
-                                    <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
-                                </div>
-
                             </div>
                         </form>
                     </div>
@@ -249,7 +245,7 @@
                             <img src="/img/buscar.jpg">
                             <br>
                             <br>
-                            <h2 class="slogan">Buscador</h2>
+                            <h2 class="slogan" style="text-decoration: bold">Buscador</h2>
                             <p>
                                 <em>Encuentra a los egresados de la UNMSM.</em>
                             </p>	
@@ -290,55 +286,55 @@
         </div>
         </section>
         /about -->
-        
+
         <!-- contact -->
         <section id="section-contact" class="section appear clearfix">
-                <div class="container">
+            <div class="container">
 
-                        <div class="row mar-bot40">
-                                <div class="col-md-offset-3 col-md-6">
-                                        <div class="section-header">
-                                                <h2 class="section-heading animated" data-animation="bounceInUp">Contacto</h2>
-                                        </div>
-                                </div>
+                <div class="row mar-bot40">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="section-header">
+                            <h2 class="section-heading animated" data-animation="bounceInUp">Contacto</h2>
                         </div>
-                        <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                        <div class="cform" id="contact-form">
-                                                <div id="sendmessage">
-                                                         Tu mensaje ha sido enviado. Gracias!
-                                                </div>
-                                                <form action="contact/contact.php" method="post" role="form" class="contactForm">
-                                                  <div class="form-group">
-                                                        <label for="name">Tu nombre</label>
-                                                        <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
-                                                        <div class="validation"></div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                        <label for="email">Tu correo</label>
-                                                        <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" />
-                                                        <div class="validation"></div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                        <label for="subject">Asunto</label>
-                                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                                        <div class="validation"></div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                        <label for="message">Mensaje</label>
-                                                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Porfavor escribe tu mensaje para nosotros aquí"></textarea>
-                                                        <div class="validation"></div>
-                                                  </div>
-
-                                                  <button type="submit" class="btn btn-primary pull-left">Enviar mensaje</button>
-                                                </form>
-
-                                        </div>
-                                </div>
-                                <!-- ./span12 -->
-                        </div>
-
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="cform" id="contact-form">
+                            <div id="sendmessage">
+                                Tu mensaje ha sido enviado. Gracias!
+                            </div>
+                            <form action="contact/contact.php" method="post" role="form" class="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Tu nombre</label>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Tu correo</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Asunto</label>
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Mensaje</label>
+                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Porfavor escribe tu mensaje para nosotros aquí"></textarea>
+                                    <div class="validation"></div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary pull-left">Enviar mensaje</button>
+                            </form>
+
+                        </div>
+                    </div>
+                    <!-- ./span12 -->
+                </div>
+
+            </div>
         </section>
 
         <section id="footer" class="section footer">
@@ -380,6 +376,7 @@
         <script src="js/bootbox.min.js"></script>
         <script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
         <script type="text/javascript" src="js/language/es_ES.js"></script>
+        <script type='text/javascript' src='js/jquery.autocomplete.js'></script>
 
         <script type="text/javascript">
             $(document).ready(function () {
