@@ -22,11 +22,11 @@ public class Main {
     public static void main(String[] args) {
 
         Spark.staticFileLocation("/public");
-//
-//        Spark.get("/",(req,res) ->{
-//            
-//         return new ModelAndView(null, "index.ftl.html");
-//         },new FreeMarkerEngine());
+
+        Spark.get("/",(req,res) ->{
+            
+         return new ModelAndView(null, "index.ftl.html");
+         },new FreeMarkerEngine());
         
         Spark.post("/registro", (req, res) -> {
             Util.conectarBD();
@@ -40,21 +40,21 @@ public class Main {
             if(existente!=null){
                 HashMap<Object, Object> data=new HashMap<>();
                 data.put("error", "El nombre de usuario ya ha sido registrado antes");
-                return new ModelAndView(data, "index.html");
+                return new ModelAndView(data, "index.ftl.html");
             }
             
             existente=Usuario.findFirst("email=?", req.queryParams("email"));
             if(existente!=null){
                 HashMap<Object, Object> data=new HashMap<>();
                 data.put("error", "El correo ya ha sido registrado antes");
-                return new ModelAndView(data, "index.html");
+                return new ModelAndView(data, "index.ftl.html");
             }
               
             u.set("password", encriptada);
             u.saveIt();
             HashMap<Object, Object> data=new HashMap<>();
             data.put("error", "Ud. ha sido registrado satisfactoriamente");
-            return new ModelAndView(data, "index.html");
+            return new ModelAndView(data, "index.ftl.html");
         },new FreeMarkerEngine());
 
         Spark.post("/login", (req, res) -> {
@@ -68,7 +68,7 @@ public class Main {
                 s.attribute("email", req.queryParams("email"));
                 
             } else {
-               res.redirect("/index.html");
+               res.redirect("/index.ftl.html");
             }
             return null;
         });
