@@ -23,45 +23,7 @@
         <!--validation -->
         <link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
 
-        <style type="text/css">
-            .thumbnail {
-                display: block;
-                padding: 4px;
-                margin-bottom: 20px;
-                line-height: 1.42857143;
-                -webkit-transition: all .2s ease-in-out;
-                transition: all .2s ease-in-out;
-                border-radius: 0;
-                border: none;
-                background-color: none;
-            }
-
-            .carousel-control {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                width: 15%;
-                opacity: .5;
-                font-size: 20px;
-                color: #fff;
-                text-align: center;
-                text-shadow: none;
-            }
-            .carousel-control.left {
-                background-image: none;
-            }
-            .carousel-control.right {
-                left: auto;
-                right: 0;
-                background-image: none;
-            }
-
-            .carousel-control {
-                padding-top:10.25%;
-                width:5%;
-            }
-        </style>
+        
 
     </head>
 
@@ -322,188 +284,190 @@
                         </div>
                         <!--/well-->
                     </div>
-                    </section>
-                    <section id="parallax2" class="section parallax" data-stellar-background-ratio="0.5">	
-                        <div class="align-center pad-top40 pad-bot40">
-                            <blockquote class="bigquote"><br><br><br><br></blockquote>
-                            <p class="color-white"><br><br><br></p>
+                </div>
+            </div>
+        </section>
+        <section id="parallax2" class="section parallax" data-stellar-background-ratio="0.5">	
+            <div class="align-center pad-top40 pad-bot40">
+                <blockquote class="bigquote"><br><br><br><br></blockquote>
+                <p class="color-white"><br><br><br></p>
+            </div>
+        </section>
+        <!-- contact -->
+        <section id="section-contact" class="section appear clearfix">
+            <div class="container">
+                <div class="row mar-bot40">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="section-header">
+                            <h2 class="section-heading animated" data-animation="bounceInUp">Contacto</h2>
                         </div>
-                    </section>
-                    <!-- contact -->
-                    <section id="section-contact" class="section appear clearfix">
-                        <div class="container">
-                            <div class="row mar-bot40">
-                                <div class="col-md-offset-3 col-md-6">
-                                    <div class="section-header">
-                                        <h2 class="section-heading animated" data-animation="bounceInUp">Contacto</h2>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="cform" id="contact-form">
+                            <div id="sendmessage">
+                                Tu mensaje ha sido enviado. Gracias!
                             </div>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="cform" id="contact-form">
-                                        <div id="sendmessage">
-                                            Tu mensaje ha sido enviado. Gracias!
-                                        </div>
-                                        <form action="contact/contact.php" method="post" role="form" class="contactForm">
-                                            <div class="form-group">
-                                                <label for="name">Tu nombre</label>
-                                                <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
-                                                <div class="validation"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">Tu correo</label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" />
-                                                <div class="validation"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="subject">Asunto</label>
-                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                                <div class="validation"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message">Mensaje</label>
-                                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Porfavor escribe tu mensaje para nosotros aquí"></textarea>
-                                                <div class="validation"></div>
-                                            </div>
+                            <form action="contact/contact.php" method="post" role="form" class="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Tu nombre</label>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Tu correo</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Asunto</label>
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Mensaje</label>
+                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Porfavor escribe tu mensaje para nosotros aquí"></textarea>
+                                    <div class="validation"></div>
+                                </div>
 
-                                            <button type="submit" class="btn btn-primary pull-left">Enviar mensaje</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- ./span12 -->
-                            </div>
+                                <button type="submit" class="btn btn-primary pull-left">Enviar mensaje</button>
+                            </form>
                         </div>
-                    </section>
+                    </div>
+                    <!-- ./span12 -->
+                </div>
+            </div>
+        </section>
 
-                    <section id="footer" class="section footer">
-                        <div class="container">
-                            <div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
-                                <div class="col-sm-12 align-center">
-                                    <ul class="social-network social-circle">
-                                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>				
-                                </div>
-                            </div>
-                            <div class="row align-center copyright">
-                                <div class="col-sm-12"><p>Copyright &copy; 2014 Helvética</p></div>
-                            </div>
-                        </div>
-                    </section>
+        <section id="footer" class="section footer">
+            <div class="container">
+                <div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
+                    <div class="col-sm-12 align-center">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>				
+                    </div>
+                </div>
+                <div class="row align-center copyright">
+                    <div class="col-sm-12"><p>Copyright &copy; 2014 Helvética</p></div>
+                </div>
+            </div>
+        </section>
 
-                    <a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>	
-                    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-                    <script src="js/jquery.js"></script>
-                    <script src="js/jquery.easing.1.3.js"></script>
-                    <script src="js/bootstrap.min.js"></script>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
-                    <script src="js/jquery.isotope.min.js"></script>
-                    <script src="js/jquery.nicescroll.min.js"></script>
-                    <script src="js/fancybox/jquery.fancybox.pack.js"></script>
-                    <script src="js/skrollr.min.js"></script>		
-                    <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
-                    <script src="js/jquery.localscroll-1.2.7-min.js"></script>
-                    <script src="js/stellar.js"></script>
-                    <script src="js/jquery.appear.js"></script>
-                    <script src="js/validate.js"></script>
-                    <script src="js/main.js"></script>
-                    <script src="js/bootbox.min.js"></script>
-                    <script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
-                    <script type="text/javascript" src="js/language/es_ES.js"></script>
-                    <script type='text/javascript' src='js/jquery.autocomplete.js'></script>
+        <a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>	
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+        <script src="js/skrollr.min.js"></script>		
+        <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+        <script src="js/jquery.localscroll-1.2.7-min.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="js/jquery.appear.js"></script>
+        <script src="js/validate.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/bootbox.min.js"></script>
+        <script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+        <script type="text/javascript" src="js/language/es_ES.js"></script>
+        <script type='text/javascript' src='js/jquery.autocomplete.js'></script>
 
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('.formNotice span').click(function () {
-                                $("#logForm").toggle();
-                                $("#regForm").toggle();
-                            });
-                        });
-                    </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.formNotice span').click(function () {
+                    $("#logForm").toggle();
+                    $("#regForm").toggle();
+                });
+            });
+        </script>
 
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('.formNotice2 span').click(function () {
-                                $("#logForm").toggle();
-                                $("#recForm").toggle();
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.formNotice2 span').click(function () {
+                    $("#logForm").toggle();
+                    $("#recForm").toggle();
 
-                            });
-                        });
-                    </script>
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('.formNotice3 span').click(function () {
-                                $("#recForm").toggle();
-                                $("#regForm").toggle();
-                            });
-                        });
-                    </script>
-                    <script>
-                        $(document).ready(function () {
-                            $('.registerForm').bootstrapValidator({
-                                feedbackIcons: {
-                                    valid: 'glyphicon glyphicon-ok',
-                                    invalid: 'glyphicon glyphicon-remove',
-                                    validating: 'glyphicon glyphicon-refresh'
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.formNotice3 span').click(function () {
+                    $("#recForm").toggle();
+                    $("#regForm").toggle();
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('.registerForm').bootstrapValidator({
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        username: {
+                            validators: {
+                                notEmpty: {
                                 },
-                                fields: {
-                                    username: {
-                                        validators: {
-                                            notEmpty: {
-                                            },
-                                            stringLength: {
-                                                min: 6,
-                                                max: 30
-                                            },
-                                            regexp: {
-                                                regexp: /^[a-zA-Z0-9]+$/
-                                            }
-
-                                        }
-                                    },
-                                    email: {
-                                        validators: {
-                                            notEmpty: {
-                                            },
-                                            emailAddress: {
-                                            }
-
-                                        }
-                                    },
-                                    password: {
-                                        validators: {
-                                            notEmpty: {
-                                            },
-                                            stringLength: {
-                                                min: 8
-                                            }
-                                        }
-                                    },
-                                    birthday: {
-                                        validators: {
-                                            notEmpty: {
-                                            },
-                                            date: {
-                                                format: 'YYYY/MM/DD'
-                                            }
-                                        }
-                                    },
-                                    gender: {
-                                        validators: {
-                                            notEmpty: {
-                                            }
-                                        }
-                                    }
+                                stringLength: {
+                                    min: 6,
+                                    max: 30
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/
                                 }
 
-                            });
-                        });
-                    </script>
+                            }
+                        },
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                emailAddress: {
+                                }
+
+                            }
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                stringLength: {
+                                    min: 8
+                                }
+                            }
+                        },
+                        birthday: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                date: {
+                                    format: 'YYYY/MM/DD'
+                                }
+                            }
+                        },
+                        gender: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        }
+                    }
+
+                });
+            });
+        </script>
 
 
-                    </body>
-                    </html>
+    </body>
+</html>

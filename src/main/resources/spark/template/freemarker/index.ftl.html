@@ -226,34 +226,62 @@
             <div class="container"> 
                 <div class="row mar-bot40">
 
-                    <div class="col-md-6 ">
-                        <form action="recuperar" id="recForm" method="post" class="registerForm form-horizontal">
-                            <div class="form-group" style="margin-top:200px">
-                                <div class="col-xs-12">
+                   <div class="col-md-6">
+                        <form class=" " role="search" id="autocompleteForm" name="autocompleteForm" action="" method="post">
+                            <div class="form-group" style="margin-top:95px">
+                                <div class="col-lg-12">
+                                    <div class="caption text-center" >
+                                        <h2 style="color: #235A83"><strong>Buscar Egresados</strong></h2>
+                                    </div>
                                     <div class="input-group">
-                                        <input name="email" class="form-control input-lg" placeholder="Nombre" autocomplete="off">
+                                        <input type="text" class="form-control" style="border: 1px solid #A8A3A3">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button" style="padding-top:8px;"><i class="glyphicon glyphicon-search"></i></button>
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <div class="caption text-center">
+                                        <p style="color: #235A83"><em>Encuentre a los egresados de la UNMSM.</em></p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group formSubmit">
-                 
-                                <div class="col-sm-5 submitWrap">
-                                    <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
-                                </div>
-
                             </div>
                         </form>
                     </div>
                     <div class="col-md-6 ">
-                        <div class="align-center">
-                            <img src="/img/buscar.jpg">
-                            <br>
-                            <br>
-                            <h2 class="slogan">Buscador</h2>
-                            <p>
-                                <em>Encuentra a los egresados de la UNMSM.</em>
-                            </p>	
+                        <div class="well-none">
+                            <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <a href="#x"><img src="img/buscar.jpg" alt="Image" class="img-responsive"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-sm-12"><a href="#x"><img src="img/buscar_1.jpg" alt="Image" class="img-responsive"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-sm-12"><a href="#x"><img src="img/buscar_2.jpg" alt="Image" class="img-responsive"></a>
+                                            </div>
+                                        </div>
+                                        <!--/row-->
+                                    </div>
+                                    <!--/item-->
+                                </div>
+                                <!--/carousel-inner--> 
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left fa-4"></i></a>
+
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right fa-4"></i></a>
+                            </div>
+                            <!--/myCarousel-->
                         </div>
+                        <!--/well-->
                     </div>
                 </div>
             </div>
