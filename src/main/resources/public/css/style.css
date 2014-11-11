@@ -1222,4 +1222,5 @@ section.buscar {
     background: #235A83;
     color: white;
     height: 100%;
+    width: 100% !important;
 }
