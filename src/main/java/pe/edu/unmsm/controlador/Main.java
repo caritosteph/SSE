@@ -5,7 +5,9 @@
  */
 package pe.edu.unmsm.controlador;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import pe.edu.unmsm.modelo.Util;
 import pe.edu.unmsm.modelo.Usuario;
 import spark.ModelAndView;
@@ -83,6 +85,16 @@ public class Main {
             return "Se le ha mandado correo";
         });
         
+        Spark.post("/contacto", (req,res)->{
+            String nombre=req.queryParams("nombre");
+            String email=req.queryParams("email");
+            String asunto=req.queryParams("asunto");
+            String mensaje=req.queryParams("mensaje");
+            Util.enviarCorreo(email, "carlos.sadhu@gmail.com", asunto, mensaje+"<br><br>"+nombre);
+            HashMap<Object, Object> data=new HashMap<>();
+            return new ModelAndView(null, "index.ftl.html");
+        },new FreeMarkerEngine());
+        
         Spark.get("/cambiar_contrasena/:email/:password", (req, res) -> {
             String email=req.params(":email");
             String password=req.params(":password");
@@ -108,6 +120,8 @@ public class Main {
                return "No se pudo cambiar contraseña";
             }
         });
+        
+        
         /*
         Spark.post("/cambiar_contrasena", (req, res) -> {
             String nueva=req.queryParams("nueva");
@@ -124,6 +138,30 @@ public class Main {
             }
             return null;
         });*/
+        
+        
+        Spark.get("/buscar/:q", (req, res) -> {
+            Util.conectarBD();
+            String q=req.params(":q");
+            System.out.println(q);
+            
+            String[] l=q.split(" ");
+            List<Usuario> usuarios=null;
+            if(l.length>0){
+                String query="";
+                for (String s : l) {
+                    if(!query.equals(""))
+                        query+=" and ";
+                    query+="nombre='"+s+"'";
+                }
+                usuarios=Usuario.where(query);
+            }
+            /*
+            HashMap<Object, Object> data=new HashMap<>();
+            data.put("usuarios", usuarios);
+            return new ModelAndView(data, "buscar_egresado.ftl.html");*/
+            return usuarios;
+        });
         
         
 
