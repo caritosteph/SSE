@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <!-- BASICS -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>SSE UNMSM</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />	
+        <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <!-- skin -->
+        <link rel="stylesheet" href="skin/default.css">
+        <link rel="shortcut icon" href="img/favicon.ico" />
+
+        <!--validation -->
+        <link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
+
+        
+
+    </head>
+
+    <body>
+        <section id="header" class="appear"></section>
+        <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="fa fa-bars color-white"></span>
+                    </button>
+                    <h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">Sistema de Seguimiento de Egresados UNMSM
+                        </a></h1>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="#section-about">Buscador</a></li>
+                        <li><a href="#section-works">Para empresas</a></li>
+                        <li><a href="#section-contact">Contacto</a></li>
+                    </ul>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </div>
+
+
+
+        <section class="featured">
+            <div class="container"> 
+                <div class="row mar-bot40">
+                    <div class="col-md-6 ">
+                        <div class="align-center">
+                            <img src="img/escudo-unmsm.png" height="178" width="160">
+                            <br>
+                            <br>
+                            <h2 class="slogan">Bienvenido al Sistema de Seguimiento de Egresados de la Universidad Nacional Mayor de San Marcos</h2>
+                            <p>
+                                <em>El Sistema de Seguimiento de Egresados (SSE) conecta a cada ex-alumno de la UNMSM con todo el resto de san marquinos en el mundo.</em>
+                            </p>	
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div id="mainWrap">
+                            <div id="loggit">
+                                <h1><i class="fa fa-lock"></i> SSE</h1>
+                                <h3>Por favor&nbsp;&nbsp;<strong>Inicie Sesión&nbsp;&nbsp;</strong>o&nbsp;&nbsp;<strong>Regístrese</strong></h3>
+
+                                <form action="/login" id="logForm" method="post" class="registerForm form-horizontal">
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                                                <input type="email" name="email" class="form-control input-lg" placeholder="Correo Electronico" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                                <input type="password" name="password" class="form-control input-lg" placeholder="Contraseña" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group formSubmit">
+                                        <div class="col-sm-7">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" checked="" autocomplete="off"> Recuérdame
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class=" col-sm-5 submitWrap" >
+                                            <button type="submit" class="btn btn-primary btn-lg alert">Iniciar Sesión</button>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-group formNotice">
+                                                <div class="col-xs-6" style="height: 0px;">
+                                                    <p class="text-center">¿Aún no tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Registrate aquí</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group formNotice2">
+                                                <div class="col-xs-6 col-xs-offset-6">
+                                                    <p class="text-center">¿Olvido su contraseña? &nbsp;&nbsp;&nbsp;&nbsp;<span>Recuperar</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <form action="registro" id="regForm" method="post" class="registerForm form-horizontal" style="display: none">
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                                                <input type="text" class="form-control input-lg" name="username" placeholder="Nombre de usuario" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                                                <input type="text" class="form-control input-lg" name="email" placeholder="Correo Electrónico" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                                <input type="password" class="form-control input-lg" name="password" placeholder="Contraseña" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group formSubmit">
+                                        <div class="formNotice col-sm-7">
+                                            <p class="hasAccount text-center">¿Ya tienes una cuenta? &nbsp;&nbsp;&nbsp;&nbsp;<span>Entra aquí</span></p>
+                                        </div>
+                                        <div class="col-sm-5 submitWrap">
+                                            <button type="submit" class="btn btn-success btn-lg">Registrarse</button>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                                <form action="recuperar" id="recForm" method="post" class="registerForm form-horizontal" style="display: none">
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                                                <input type="email" name="email" class="form-control input-lg" placeholder="Correo Electronico" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group formSubmit">
+                                        <div class="formNotice2 col-sm-7">
+                                            <p class="hasAccount text-center">¿Ya tienes una cuenta?&nbsp;&nbsp;<span>Entre aquí</span></p>
+                                        </div>
+                                        <div class="col-sm-5 submitWrap">
+                                            <button type="submit" class="btn btn-danger btn-lg">Restablecer</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- services -->
+        <section id="section-services" class="section pad-bot30 bg-white">
+            <div class="container"> 
+
+                <div class="row mar-bot40">
+                    <div class="col-lg-4" >
+                        <div class="align-center">
+                            <i class="fa fa-graduation-cap fa-5x mar-bot20"></i>
+                            <h4 class="text-bold">Egresados</h4>
+                            <p>Encuentra ofertas de trabajo especialmente para san marquinos y conoce siempre las ultimas noticias y eventos de la UNMSM.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" >
+                        <div class="align-center">
+                            <i class="fa fa-group fa-5x mar-bot20"></i>
+                            <h4 class="text-bold">Empresas</h4>
+                            <p>Consigue el mejor talento humano de la Universidad Decána de América.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" >
+                        <div class="align-center">
+                            <i class="fa fa-institution fa-5x mar-bot20"></i>
+                            <h4 class="text-bold">Universidad</h4>
+                            <p>El Sistema de Seguimiento de Egresados permite mejorar los planes de estudio de la UNMSM basado en la información de los egresados y grupos de interés.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>	
+
+            </div>
+        </section>
+
+
+        <!-- spacer section:stats -->
+        <section id="parallax2" class="section parallax" data-stellar-background-ratio="0.5">	
+            <div class="align-center pad-top40 pad-bot40">
+                <blockquote class="bigquote"><br><br><br><br></blockquote>
+                <p class="color-white"><br><br><br></p>
+
+            </div>
+        </section>
+        <section id="section-about" class="section appear clearfix" style="padding-top: 110px;">
+            <div class="container"> 
+                <div class="row mar-bot40">
+                    <div class="col-md-6">
+                        <form class=" " role="search" id="autocompleteForm" name="autocompleteForm" action="" method="post">
+                            <div class="form-group" style="margin-top:95px">
+                                <div class="col-lg-12">
+                                    <div class="caption text-center" >
+                                        <h2 style="color: #235A83"><strong>Buscar Egresados</strong></h2>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" style="border: 1px solid #A8A3A3">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button" style="padding-top:8px;"><i class="glyphicon glyphicon-search"></i></button>
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <div class="caption text-center">
+                                        <p style="color: #235A83"><em>Encuentre a los egresados de la UNMSM.</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="well-none">
+                            <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <a href="#x"><img src="img/buscar.jpg" alt="Image" class="img-responsive"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-sm-12"><a href="#x"><img src="img/buscar_1.jpg" alt="Image" class="img-responsive"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-sm-12"><a href="#x"><img src="img/buscar_2.jpg" alt="Image" class="img-responsive"></a>
+                                            </div>
+                                        </div>
+                                        <!--/row-->
+                                    </div>
+                                    <!--/item-->
+                                </div>
+                                <!--/carousel-inner--> 
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left fa-4"></i></a>
+
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right fa-4"></i></a>
+                            </div>
+                            <!--/myCarousel-->
+                        </div>
+                        <!--/well-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="parallax2" class="section parallax" data-stellar-background-ratio="0.5">	
+            <div class="align-center pad-top40 pad-bot40">
+                <blockquote class="bigquote"><br><br><br><br></blockquote>
+                <p class="color-white"><br><br><br></p>
+            </div>
+        </section>
+        <!-- contact -->
+        <section id="section-contact" class="section appear clearfix">
+            <div class="container">
+                <div class="row mar-bot40">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="section-header">
+                            <h2 class="section-heading animated" data-animation="bounceInUp">Contacto</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="cform" id="contact-form">
+                            <div id="sendmessage">
+                                Tu mensaje ha sido enviado. Gracias!
+                            </div>
+                            <form action="contact/contact.php" method="post" role="form" class="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Tu nombre</label>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Tu correo</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Asunto</label>
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Mensaje</label>
+                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Porfavor escribe tu mensaje para nosotros aquí"></textarea>
+                                    <div class="validation"></div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary pull-left">Enviar mensaje</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- ./span12 -->
+                </div>
+            </div>
+        </section>
+
+        <section id="footer" class="section footer">
+            <div class="container">
+                <div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
+                    <div class="col-sm-12 align-center">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>				
+                    </div>
+                </div>
+                <div class="row align-center copyright">
+                    <div class="col-sm-12"><p>Copyright &copy; 2014 Helvética</p></div>
+                </div>
+            </div>
+        </section>
+
+        <a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>	
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+        <script src="js/skrollr.min.js"></script>		
+        <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+        <script src="js/jquery.localscroll-1.2.7-min.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="js/jquery.appear.js"></script>
+        <script src="js/validate.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/bootbox.min.js"></script>
+        <script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+        <script type="text/javascript" src="js/language/es_ES.js"></script>
+        <script type='text/javascript' src='js/jquery.autocomplete.js'></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.formNotice span').click(function () {
+                    $("#logForm").toggle();
+                    $("#regForm").toggle();
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.formNotice2 span').click(function () {
+                    $("#logForm").toggle();
+                    $("#recForm").toggle();
+
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.formNotice3 span').click(function () {
+                    $("#recForm").toggle();
+                    $("#regForm").toggle();
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('.registerForm').bootstrapValidator({
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        username: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/
+                                }
+
+                            }
+                        },
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                emailAddress: {
+                                }
+
+                            }
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                stringLength: {
+                                    min: 8
+                                }
+                            }
+                        },
+                        birthday: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                date: {
+                                    format: 'YYYY/MM/DD'
+                                }
+                            }
+                        },
+                        gender: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        }
+                    }
+
+                });
+            });
+        </script>
+
+
+    </body>
+</html>
