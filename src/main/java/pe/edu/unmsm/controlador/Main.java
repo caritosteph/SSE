@@ -33,29 +33,23 @@ public class Main {
         Spark.post("/registro", (req, res) -> {
             Util.conectarBD();
             Usuario u =new Usuario();
-            u.set("username", req.queryParams("username"));
+
             u.set("email", req.queryParams("email"));
+            Usuario existente=Usuario.findFirst("email=?", req.queryParams("email"));
+            if(existente!=null){
+                HashMap<Object, Object> data=new HashMap<>();
+                data.put("mensaje", "El correo ya ha sido registrado antes");
+                return new ModelAndView(data, "index.ftl.html");
+            }
+            
+            u.set("nombres", req.queryParams("nombres"));
+            u.set("apellidos", req.queryParams("apellidos"));
             String password=req.queryParams("password");
             String encriptada=Util.encriptar(password);
-            
-            Usuario existente=Usuario.findFirst("username=?", req.queryParams("username"));
-            if(existente!=null){
-                HashMap<Object, Object> data=new HashMap<>();
-                data.put("error", "El nombre de usuario ya ha sido registrado antes");
-                return new ModelAndView(data, "index.ftl.html");
-            }
-            
-            existente=Usuario.findFirst("email=?", req.queryParams("email"));
-            if(existente!=null){
-                HashMap<Object, Object> data=new HashMap<>();
-                data.put("error", "El correo ya ha sido registrado antes");
-                return new ModelAndView(data, "index.ftl.html");
-            }
-              
             u.set("password", encriptada);
             u.saveIt();
             HashMap<Object, Object> data=new HashMap<>();
-            data.put("error", "Ud. ha sido registrado satisfactoriamente");
+            data.put("mensaje", "Ud. ha sido registrado satisfactoriamente");
             return new ModelAndView(data, "index.ftl.html");
         },new FreeMarkerEngine());
 
