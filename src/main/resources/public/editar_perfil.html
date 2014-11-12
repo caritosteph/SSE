@@ -21,6 +21,8 @@
         <link href="css/bootstrap-editable.css" rel="stylesheet">
         <!-- subir imagen -->
         <link rel="stylesheet" href="css/main_1.css">
+
+        <link rel="stylesheet" href="css/datepicker.css">
     <body>
         <section id="header" ></section>
         <div class="navbar navbar-top" role="navigation" >
@@ -189,9 +191,9 @@
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Fecha de Nacimiento</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="">
+                                                        <div class="col-sm-4 "><label>Fecha de Nacimiento</label></div>
+                                                        <div class="col-sm-8" id="dpYears" data-date="12-11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                                            <input class="form-control" id="CompanyForm" size="16" type="text" value="12-11-2014" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -289,7 +291,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <!-- =========
@@ -508,6 +510,8 @@
         <script src="js/fusty-flow-factory.js"></script>
         <script src="js/ng-flow.js"></script>
         <script src="js/app_1.js"></script>
+
+        <script src="js/bootstrap-datepicker.js"></script>
         <script>
                                                         $(function () {
                                                             $('.editar').editable({
@@ -528,6 +532,12 @@
                                                         });
         </script>
 
+        <script>
+            $(function () {
+                window.prettyPrint && prettyPrint();
+                $('#dpYears').datepicker();
+            });
+        </script>
         <!-- fin para editar -->
     </body>
 </html>
