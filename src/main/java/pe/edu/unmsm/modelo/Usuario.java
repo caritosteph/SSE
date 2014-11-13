@@ -13,5 +13,11 @@ import org.javalite.activejdbc.annotations.Table;
  * @author Sadhu
  */
 public class Usuario extends Model{
+    public String getNombres(){
+        return getString("nombres");
+    }
     
+    public String getApellidos(){
+        return getString("apellidos");
+    }
 }

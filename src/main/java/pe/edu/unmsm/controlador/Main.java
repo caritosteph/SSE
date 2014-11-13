@@ -8,6 +8,7 @@ package pe.edu.unmsm.controlador;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.javalite.activejdbc.Base;
 import pe.edu.unmsm.modelo.Util;
 import pe.edu.unmsm.modelo.Usuario;
 import spark.ModelAndView;
@@ -24,6 +25,7 @@ public class Main {
     public static void main(String[] args) {
 
         Spark.staticFileLocation("/public");
+        
 
         Spark.get("/",(req,res) ->{
             
@@ -134,10 +136,9 @@ public class Main {
         });*/
         
         
-        Spark.get("/buscar/:q", (req, res) -> {
-            Util.conectarBD();
-            String q=req.params(":q");
-            System.out.println(q);
+        Spark.get("/buscar", (req, res) -> {
+            
+            String q=req.queryParams("busqueda");
             
             String[] l=q.split(" ");
             List<Usuario> usuarios=null;
@@ -146,17 +147,40 @@ public class Main {
                 for (String s : l) {
                     if(!query.equals(""))
                         query+=" and ";
-                    query+="nombre='"+s+"'";
+                    query+="(lcase(nombres) like '%"+s+"%' or lcase(apellidos) like '%"+s+"%')";
                 }
+                Util.conectarBD();
                 usuarios=Usuario.where(query);
             }
-            /*
+            
             HashMap<Object, Object> data=new HashMap<>();
+            data.put("busqueda",q);
             data.put("usuarios", usuarios);
-            return new ModelAndView(data, "buscar_egresado.ftl.html");*/
-            return usuarios;
-        });
+            return new ModelAndView(data, "buscar_egresado.ftl.html");
+        },new FreeMarkerEngine());
         
+        Spark.post("/modificar_perfil", (req, res) -> {
+            Util.conectarBD();
+            Usuario u =new Usuario();
+
+            u.set("email", req.queryParams("email"));
+            Usuario existente=Usuario.findFirst("email=?", req.queryParams("email"));
+            if(existente!=null){
+                HashMap<Object, Object> data=new HashMap<>();
+                data.put("mensaje", "El correo ya ha sido registrado antes");
+                return new ModelAndView(data, "index.ftl.html");
+            }
+            
+            u.set("nombres", req.queryParams("nombres"));
+            u.set("apellidos", req.queryParams("apellidos"));
+            String password=req.queryParams("password");
+            String encriptada=Util.encriptar(password);
+            u.set("password", encriptada);
+            u.saveIt();
+            HashMap<Object, Object> data=new HashMap<>();
+            data.put("mensaje", "Ud. ha sido registrado satisfactoriamente");
+            return new ModelAndView(data, "index.ftl.html");
+        },new FreeMarkerEngine());
         
 
     }
