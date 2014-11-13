@@ -109,218 +109,250 @@
                                         <!-- =========
                                         Start About your self section
                                         ===================================-->
-                                        <form action="" class="validar">
-                                        
-                                        <div class="row">
-                                            <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Presentación</h3>
-                                            <div class="col-md-3 text-center">
-                                                <div flow-init="{singleFile:true}"
-                                                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-                                                    <div class="thumbnail" ng-show="!$flow.files.length">
-                                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                                        <form action="" id="validar">
+
+                                            <div class="row">
+                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Presentación</h3>
+                                                <div class="col-md-3 text-center">
+                                                    <div flow-init="{singleFile:true}"
+                                                         flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                                                        <div class="thumbnail" ng-show="!$flow.files.length">
+                                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                                                        </div>
+                                                        <div class="thumbnail" ng-show="$flow.files.length">
+                                                            <img flow-img="$flow.files[0]" />
+                                                        </div>
+                                                        <div>
+                                                            <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn>Seleccionar imagen</span>
+                                                            <span class="btn btn-info" ng-show="$flow.files.length" flow-btn>Cambiar</span>
+                                                            <span class="btn btn-danger" ng-show="$flow.files.length"
+                                                                  ng-click="$flow.cancel()">
+                                                                Eliminar
+                                                            </span>
+                                                        </div>
+                                                        <p>
+                                                            PNG,GIF,JPG,JEPG.
+                                                        </p>
                                                     </div>
-                                                    <div class="thumbnail" ng-show="$flow.files.length">
-                                                        <img flow-img="$flow.files[0]" />
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="mini-desc">
+                                                        <h2 class="title"><a href="#"  data-type="text" data-mode="inline" class="editar editable editable-click">Hola, Mi nombre es Carlos Rojas!</a></h2>
+                                                        <p><a href="#"  data-type="textarea" data-mode="inline"  class="editar editable editable-click">Hola mi nombre es Carlos Rojas, soy programador web y movil.Estudié en San Marcos, sobre todo el estudio de programación web y movil.He estado trabajando en diferentes tipos de proyectos como: marca, diseño web, el código, la ilustración. Tengo una pasión para la creación de todo tipo de cosas relacionadas con las artes visuales, como el tipo, películas, fotos ...  </a>
+                                                        </p>
                                                     </div>
-                                                    <div>
-                                                        <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn>Seleccionar imagen</span>
-                                                        <span class="btn btn-info" ng-show="$flow.files.length" flow-btn>Cambiar</span>
-                                                        <span class="btn btn-danger" ng-show="$flow.files.length"
-                                                              ng-click="$flow.cancel()">
-                                                            Eliminar
-                                                        </span>
-                                                    </div>
-                                                    <p>
-                                                        PNG,GIF,JPG,JEPG.
-                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-9">
-                                                <div class="mini-desc">
-                                                    <h2 class="title"><a href="#"  data-type="text" data-mode="inline" class="editar editable editable-click">Hola, Mi nombre es Carlos Rojas!</a></h2>
-                                                    <p><a href="#"  data-type="textarea" data-mode="inline"  class="editar editable editable-click">Hola mi nombre es Carlos Rojas, soy programador web y movil.Estudié en San Marcos, sobre todo el estudio de programación web y movil.He estado trabajando en diferentes tipos de proyectos como: marca, diseño web, el código, la ilustración. Tengo una pasión para la creación de todo tipo de cosas relacionadas con las artes visuales, como el tipo, películas, fotos ...  </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- =========
-                                        End About your self section
-                                        ===================================-->
+                                            <!-- =========
+                                            End About your self section
+                                            ===================================-->
 
-                                        <!-- =========
-                                        Start List Indentity and services your self  section
-                                        ===================================-->
-                                        <div class="deviter"></div>
-                                        <div class="row">
-                                            <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos Básicos</h3>
-                                            <div class="identity-area">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Nombres</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese Nombres">
+                                            <!-- =========
+                                            Start List Indentity and services your self  section
+                                            ===================================-->
+                                            <div class="deviter"></div>
+                                            <div class="row">
+                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos Básicos</h3>
+                                                <div class="identity-area">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Nombres</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese Nombres">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Apellidos</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese Apellidos">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4 "><label>Fecha de Nacimiento</label></div>
-                                                        <div class="col-sm-8" id="dpYears" data-date="12-11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                                            <input class="form-control" id="CompanyForm" size="14" type="text" value="12-11-2014" >
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Documento de Identidad</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese Documento de Identidad">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4 "><label>Género</label></div>
-                                                        <div class="col-sm-8">
-                                                            <div class="form-group ">
-                                                                <select class="form-control" name="genero" >
-                                                                    <option value="Masculino">Masculino</option>
-                                                                    <option value="Femenino">Femenino</option>
-                                                                </select>
-
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Apellidos</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="apellido" placeholder="Ingrese Apellidos">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Estado Civil</label></div>
-                                                        <div class="col-sm-8">
-                                                            <div class="form-group selectForm">
-                                                                <select class="form-control" name="estado" >
-                                                                    <option value="Masculino">Soltero</option>
-                                                                    <option value="Femenino">Casado</option>
-                                                                    <option value="Masculino">Viudo</option>
-                                                                    <option value="Femenino">Separado</option>
-                                                                    <option value="Masculino">Moscaabeja</option>
-                                                                </select>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4 "><label>Fecha de Nacimiento</label></div>
+                                                            <div class="col-sm-8" id="dpYears" data-date="12-11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                                                <div class="form-group">
+                                                                    <input class="form-control" size="14" type="text" name="fecha" value="12-11-2014" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Documento de Identidad</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" id="CompanyForm" name="dni" placeholder="Ingrese Documento de Identidad">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4 "><label>Género</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group ">
+                                                                    <select class="form-control" name="genero" >
+                                                                        <option value="Masculino">Masculino</option>
+                                                                        <option value="Femenino">Femenino</option>
+                                                                    </select>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Estado Civil</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group selectForm">
+                                                                    <select class="form-control" name="estado" >
+                                                                        <option value="Masculino">Soltero</option>
+                                                                        <option value="Femenino">Casado</option>
+                                                                        <option value="Masculino">Viudo</option>
+                                                                        <option value="Femenino">Separado</option>
+                                                                        <option value="Masculino">Moscaabeja</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="deviter"></div>
-                                        <div class="row">
-                                            <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos de Domicilio o Contacto</h3>
-                                            <div class="identity-area">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Dirección Actual</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese dirección actual">
+                                            <div class="deviter"></div>
+                                            <div class="row">
+                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos de Domicilio o Contacto</h3>
+                                                <div class="identity-area">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Dirección Actual</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="direccion" placeholder="Ingrese dirección actual">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Distrito</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="distrito" placeholder="Ingrese distrito">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Distrito</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese distrito">
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Teléfono Fíjo</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="telfijo" placeholder="Ingrese teléfono fijo">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Teléfono Fíjo</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese teléfono fijo">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Teléfono Celular</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese teléfono celular">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="deviter"></div>
-                                        <div class="row">
-                                            <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos de Estudio</h3>
-                                            <div class="identity-area">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Universidad</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese universidad">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Facultad</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese facultad">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Especialidad</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese especialidad">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Año de Egreso</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese año de egreso">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Teléfono Celular</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="telcel" placeholder="Ingrese teléfono celular">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
-                                        <div class="deviter"></div>
-                                        <div class="row">
-                                            <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos de Redes Sociales</h3>
-                                            <div class="identity-area">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Correo Electrónico</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese correo electrónico">
+                                            <div class="deviter"></div>
+                                            <div class="row">
+                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos de Estudio</h3>
+                                                <div class="identity-area">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Universidad</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="universidad" placeholder="Ingrese universidad">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Facultad</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="facultad" placeholder="Ingrese facultad">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Facebook</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese Facebook">
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Especialidad</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="especialidad" placeholder="Ingrese especialidad">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>LinkedIn</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese LinkedIn">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="col-sm-4"><label>Twitter</label></div>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" class="form-control" id="CompanyForm" placeholder="Ingrese Twitter">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Año de Egreso</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="anioegre" placeholder="Ingrese año de egreso">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                            <div class="deviter"></div>
+                                            <div class="row">
+                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos de Redes Sociales</h3>
+                                                <div class="identity-area">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Correo Electrónico</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" id="CompanyForm" name="email" placeholder="Ingrese correo electrónico">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Facebook</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="url" class="form-control"  name="facebook" placeholder="Ingrese Facebook">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>LinkedIn</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="url" class="form-control"  name="linkedin" placeholder="Ingrese LinkedIn">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="col-sm-4"><label>Twitter</label></div>
+                                                            <div class="col-sm-8">
+                                                                <div class="form-group">
+                                                                    <input type="url" class="form-control" name="twitter" placeholder="Ingrese Twitter">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -352,6 +384,16 @@
                                                                 <h5>Google Inc.</h5>
                                                                 <p>I worked as a Web Developer at Google for 2 years. I create usable web interfaces, front end coding stuff and almost anything. But i love what i do.</p>
                                                             </div>
+                                                            <form role="form" autocomplete="off">
+                                                                <div class="entry input-group col-xs-3">
+                                                                    <input class="form-control" name="fields[]" type="text" placeholder="Type something" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn btn-success btn-add" type="button">
+                                                                            <span class="glyphicon glyphicon-plus"></span>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                         <div class="item-event">
                                                             <span class="date">2013</span>
@@ -544,23 +586,23 @@
         <script src="js/bootstrapValidator.min.js"></script>
         <script src="js/bootstrap-datepicker.js"></script>
         <script>
-            $(function () {
-                $('.editar').editable({
-                    url: '/post',
-                    validate: function (value) {
-                        if ($.trim(value) == '')
-                            return 'Por favor introduce un valor';
-                        }
-                });
-                $('.editar2').editable({
-                    url: '/post',
-                    validate: function (value) {
-                        if ($.trim(value) == '')
-                            return 'Por favor introduce un valor';
-                        },
-                });
+                                                                      $(function () {
+                                                                          $('.editar').editable({
+                                                                              url: '/post',
+                                                                              validate: function (value) {
+                                                                                  if ($.trim(value) == '')
+                                                                                      return 'Por favor introduce un valor';
+                                                                              }
+                                                                          });
+                                                                          $('.editar2').editable({
+                                                                              url: '/post',
+                                                                              validate: function (value) {
+                                                                                  if ($.trim(value) == '')
+                                                                                      return 'Por favor introduce un valor';
+                                                                              },
+                                                                          });
 
-            });
+                                                                      });
         </script>
 
         <script>
@@ -569,28 +611,46 @@
                 $('#dpYears').datepicker();
             });
         </script>
-        
+
         <script>
             $(document).ready(function () {
-                $('.validar').bootstrapValidator({
+                $('#validar').bootstrapValidator({
                     feedbackIcons: {
                         valid: 'glyphicon glyphicon-ok',
                         invalid: 'glyphicon glyphicon-remove',
                         validating: 'glyphicon glyphicon-refresh'
                     },
                     fields: {
-                        username: {
+                        nombre: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        apellido: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        fecha: {
                             validators: {
                                 notEmpty: {
                                 },
-                                stringLength: {
-                                    min: 6,
-                                    max: 100
-                                },
-                                regexp: {
-                                    regexp: /^[a-zA-Z0-9]+$/
+                                date: {
+                                    format: 'DD/MM/YYYY'
                                 }
-
+                            }
+                        },
+                        dni: {
+                            validators: {
+                                notEmpty: {
+                                },
+                                integer: {
+                                },
+                                stringLength: {
+                                    max: 8
+                                }
                             }
                         },
                         email: {
@@ -611,33 +671,115 @@
                                 }
                             }
                         },
-                        birthday: {
+                        genero: {
                             validators: {
                                 notEmpty: {
-                                },
-                                date: {
-                                    format: 'YYYY/MM/DD'
                                 }
                             }
                         },
-                        genero: {
-                                    validators: {
-                                        notEmpty: {
-                                        }
-                                    }
-                                },
-                                estado: {
-                                    validators: {
-                                        notEmpty: {
-                                        }
-                                    }
+                        estado: {
+                            validators: {
+                                notEmpty: {
                                 }
+                            }
+                        },
+                        direccion: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        distrito: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        telfijo: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        telcel: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        universidad: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        facultad: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        especialidad: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        anioegre: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        facebook: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        linkedin: {
+                            validators: {
+                                notEmpty: {
+                                }
+                            }
+                        },
+                        twitter: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        }
                     }
 
                 });
             });
         </script>
-        
+
+        <script>
+            $(function ()
+            {
+                $(document).on('click', '.btn-add', function (e)
+                {
+                    e.preventDefault();
+
+                    var controlForm = $('.controls form:first'),
+                            currentEntry = $(this).parents('.entry:first'),
+                            newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+                    newEntry.find('input').val('');
+                    controlForm.find('.entry:not(:last) .btn-add')
+                            .removeClass('btn-add').addClass('btn-remove')
+                            .removeClass('btn-success').addClass('btn-danger')
+                            .html('<span class="glyphicon glyphicon-minus"></span>');
+                }).on('click', '.btn-remove', function (e)
+                {
+                    $(this).parents('.entry:first').remove();
+
+                    e.preventDefault();
+                    return false;
+                });
+            });
+        </script>
         <!-- fin para editar -->
     </body>
 </html>
