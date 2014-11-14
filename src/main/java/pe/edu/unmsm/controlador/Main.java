@@ -15,6 +15,9 @@ import pe.edu.unmsm.modelo.Usuario;
 import spark.ModelAndView;
 import spark.Session;
 import spark.Spark;
+import static spark.Spark.after;
+import static spark.Spark.before;
+import static spark.Spark.halt;
 import spark.template.freemarker.FreeMarkerEngine;
 
 /**
@@ -27,7 +30,15 @@ public class Main {
 
         Spark.staticFileLocation("/public");
         
-
+        before("/home_egresado.html", (request, response) -> {
+            // ... check if authenticated
+            halt(401, "No tiene persmisos para acceder a esta url!");
+        });
+        
+        after("/buscar",(request, response) -> {
+            Base.close();
+        });
+        
         Spark.get("/",(req,res) ->{
             
          return new ModelAndView(null, "index.ftl.html");
@@ -54,6 +65,7 @@ public class Main {
              //herencia
             Alumno a=new Alumno();
             u.add(a);
+            Base.close();
             //fin herencia
             HashMap<Object, Object> data=new HashMap<>();
             data.put("mensaje", "Ud. ha sido registrado satisfactoriamente");
@@ -64,7 +76,7 @@ public class Main {
             Util.conectarBD();
             String encriptada=Util.encriptar(req.queryParams("password"));
             Usuario u = Usuario.findFirst("email=? and password=?", req.queryParams("email"),encriptada);
-           
+            Base.close();
             if (u != null) {
                 res.redirect("/home_egresado.html");
                 Session s=req.session(true);
@@ -81,6 +93,7 @@ public class Main {
             Util.conectarBD();
             Usuario u=Usuario.findFirst("email=?", email);
             String password=u.getString("password");
+            Base.close();
             String mensaje="<a href='http://localhost:4567/cambiar_contrasena/"+email+"/"+password+"'>Recuperar contraseña</a>";
             Util.enviarCorreo("SSE@gmail.com", email, "Recuperar contrasena", mensaje);
             return "Se le ha mandado correo";
@@ -115,6 +128,7 @@ public class Main {
                 Usuario u=Usuario.findFirst("email=?", email);
                 u.set("password", Util.encriptar(nueva));
                 u.saveIt();
+                Base.close();
                 return "Contraseña cambiada";
             }
             else{
@@ -155,12 +169,14 @@ public class Main {
                     query+="(lcase(nombres) like '%"+s+"%' or lcase(apellidos) like '%"+s+"%')";
                 }
                 Util.conectarBD();
-                usuarios=Usuario.where(query);
+                usuarios=Usuario.where(query).load();
+                
             }
             
             HashMap<Object, Object> data=new HashMap<>();
             data.put("busqueda",q);
             data.put("usuarios", usuarios);
+            
             return new ModelAndView(data, "buscar_egresado.ftl.html");
         },new FreeMarkerEngine());
         
@@ -191,6 +207,7 @@ public class Main {
             a.set("estado_civil",req.queryParams("estado_civil"));
             a.set("genero",req.queryParams("genero"));
             a.saveIt();
+            Base.close();
             HashMap<Object, Object> data=new HashMap<>();
             data.put("mensaje", "Ud. ha sido registrado satisfactoriamente");
             return new ModelAndView(data, "index.ftl.html");
