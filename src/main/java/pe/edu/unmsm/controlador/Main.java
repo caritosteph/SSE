@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.javalite.activejdbc.Base;
+import pe.edu.unmsm.modelo.Alumno;
 import pe.edu.unmsm.modelo.Util;
 import pe.edu.unmsm.modelo.Usuario;
 import spark.ModelAndView;
@@ -35,7 +36,7 @@ public class Main {
         Spark.post("/registro", (req, res) -> {
             Util.conectarBD();
             Usuario u =new Usuario();
-
+           
             u.set("email", req.queryParams("email"));
             Usuario existente=Usuario.findFirst("email=?", req.queryParams("email"));
             if(existente!=null){
@@ -50,6 +51,10 @@ public class Main {
             String encriptada=Util.encriptar(password);
             u.set("password", encriptada);
             u.saveIt();
+             //herencia
+            Alumno a=new Alumno();
+            u.add(a);
+            //fin herencia
             HashMap<Object, Object> data=new HashMap<>();
             data.put("mensaje", "Ud. ha sido registrado satisfactoriamente");
             return new ModelAndView(data, "index.ftl.html");
@@ -161,22 +166,31 @@ public class Main {
         
         Spark.post("/modificar_perfil", (req, res) -> {
             Util.conectarBD();
-            Usuario u =new Usuario();
-
-            u.set("email", req.queryParams("email"));
-            Usuario existente=Usuario.findFirst("email=?", req.queryParams("email"));
-            if(existente!=null){
-                HashMap<Object, Object> data=new HashMap<>();
-                data.put("mensaje", "El correo ya ha sido registrado antes");
-                return new ModelAndView(data, "index.ftl.html");
-            }
             
-            u.set("nombres", req.queryParams("nombres"));
-            u.set("apellidos", req.queryParams("apellidos"));
-            String password=req.queryParams("password");
-            String encriptada=Util.encriptar(password);
-            u.set("password", encriptada);
-            u.saveIt();
+            String email=req.queryParams("email");
+            
+            Usuario u=Usuario.findFirst("email=?", email);
+            
+            Alumno a=u.getAll(Alumno.class).get(0);
+
+            a.set("nombres", u.get("nombres"));
+            a.set("apellidos", u.get("apellidos"));
+            a.set("fecha_nacimiento", req.queryParams("fecha_nacimiento"));
+            a.set("dni",req.queryParams("dni"));
+            a.set("direccion",req.queryParams("direccion"));
+            a.set("distrito",req.queryParams("distrito"));
+            a.set("telefono_fijo",req.queryParams("telefono_fijo"));
+            a.set("telefono_movil",req.queryParams("telefono_movil"));
+            a.set("universidad",req.queryParams("universidad"));
+            a.set("facultad",req.queryParams("facultad"));
+            a.set("especialidad",req.queryParams("especialidad"));
+            a.set("anio_egreso",req.queryParams("anio_egreso"));
+            a.set("facebook",req.queryParams("facebook"));
+            a.set("linkedin",req.queryParams("linkedin"));
+            a.set("twitter",req.queryParams("twitter"));
+            a.set("estado_civil",req.queryParams("estado_civil"));
+            a.set("genero",req.queryParams("genero"));
+            a.saveIt();
             HashMap<Object, Object> data=new HashMap<>();
             data.put("mensaje", "Ud. ha sido registrado satisfactoriamente");
             return new ModelAndView(data, "index.ftl.html");

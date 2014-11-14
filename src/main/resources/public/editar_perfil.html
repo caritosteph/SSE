@@ -159,7 +159,7 @@
                                                             <div class="col-sm-4"><label>Nombres</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese Nombres">
+                                                                    <input type="text" class="form-control" name="nombres" placeholder="Ingrese Nombres">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -167,7 +167,7 @@
                                                             <div class="col-sm-4"><label>Apellidos</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="apellido" placeholder="Ingrese Apellidos">
+                                                                    <input type="text" class="form-control" name="apellidos" placeholder="Ingrese Apellidos">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -178,7 +178,7 @@
                                                             <div class="col-sm-4 "><label>Fecha de Nacimiento</label></div>
                                                             <div class="col-sm-8" id="dpYears" data-date="12-11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
                                                                 <div class="form-group">
-                                                                    <input class="form-control" size="14" type="text" name="fecha" value="12-11-2014" >
+                                                                    <input class="form-control" size="14" type="text" name="fecha_nacimiento" value="12-11-2014" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -209,7 +209,7 @@
                                                             <div class="col-sm-4"><label>Estado Civil</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group selectForm">
-                                                                    <select class="form-control" name="estado" >
+                                                                    <select class="form-control" name="estado_civil" >
                                                                         <option value="Masculino">Soltero</option>
                                                                         <option value="Femenino">Casado</option>
                                                                         <option value="Masculino">Viudo</option>
@@ -251,7 +251,7 @@
                                                             <div class="col-sm-4"><label>Teléfono Fíjo</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="telfijo" placeholder="Ingrese teléfono fijo">
+                                                                    <input type="text" class="form-control" name="telefono_fijo" placeholder="Ingrese teléfono fijo">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -259,7 +259,7 @@
                                                             <div class="col-sm-4"><label>Teléfono Celular</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="telcel" placeholder="Ingrese teléfono celular">
+                                                                    <input type="text" class="form-control" name="telefono_movil" placeholder="Ingrese teléfono celular">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -302,7 +302,7 @@
                                                             <div class="col-sm-4"><label>Año de Egreso</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="anioegre" placeholder="Ingrese año de egreso">
+                                                                    <input type="text" class="form-control" name="anio_egreso" placeholder="Ingrese año de egreso">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -353,6 +353,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <button type="submit" class="btn btn-success btn-lg">Guardar</button>
                                         </form>
                                     </div>
                                 </div>
@@ -621,19 +622,19 @@
                         validating: 'glyphicon glyphicon-refresh'
                     },
                     fields: {
-                        nombre: {
+                        nombres: {
                             validators: {
                                 notEmpty: {
                                 }
                             }
                         },
-                        apellido: {
+                        apellidos: {
                             validators: {
                                 notEmpty: {
                                 }
                             }
                         },
-                        fecha: {
+                        fecha_nacimiento: {
                             validators: {
                                 notEmpty: {
                                 },
@@ -662,22 +663,14 @@
 
                             }
                         },
-                        password: {
-                            validators: {
-                                notEmpty: {
-                                },
-                                stringLength: {
-                                    min: 8
-                                }
-                            }
-                        },
+
                         genero: {
                             validators: {
                                 notEmpty: {
                                 }
                             }
                         },
-                        estado: {
+                        estado_civil: {
                             validators: {
                                 notEmpty: {
                                 }
@@ -695,13 +688,13 @@
                                 }
                             }
                         },
-                        telfijo: {
+                        telefono_fijo: {
                             validators: {
                                 notEmpty: {
                                 }
                             }
                         },
-                        telcel: {
+                        telefono_movil: {
                             validators: {
                                 notEmpty: {
                                 }
@@ -725,7 +718,7 @@
                                 }
                             }
                         },
-                        anioegre: {
+                        anio_egreso: {
                             validators: {
                                 notEmpty: {
                                 }
