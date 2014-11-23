@@ -30,15 +30,6 @@ public class Main {
 
         Spark.staticFileLocation("/public");
         
-        before("/home_egresado.html", (request, response) -> {
-            // ... check if authenticated
-            halt(401, "No tiene persmisos para acceder a esta url!");
-        });
-        
-        after("/buscar",(request, response) -> {
-            Base.close();
-        });
-        
         Spark.get("/",(req,res) ->{
             
          return new ModelAndView(null, "index.ftl.html");
@@ -83,10 +74,12 @@ public class Main {
                 s.attribute("email", req.queryParams("email"));
                 
             } else {
-               res.redirect("/index.ftl.html");
+               HashMap<Object, Object> data=new HashMap<>();
+               data.put("mensaje", "Su usuario y contraseña no coinciden");
+               return new ModelAndView(data, "index.ftl.html");
             }
             return null;
-        });
+        },new FreeMarkerEngine());
         
         Spark.post("/recuperar", (req, res) -> {
             String email=req.queryParams("email");
@@ -94,10 +87,12 @@ public class Main {
             Usuario u=Usuario.findFirst("email=?", email);
             String password=u.getString("password");
             Base.close();
-            String mensaje="<a href='http://localhost:4567/cambiar_contrasena/"+email+"/"+password+"'>Recuperar contraseña</a>";
-            Util.enviarCorreo("SSE@gmail.com", email, "Recuperar contrasena", mensaje);
-            return "Se le ha mandado correo";
-        });
+            String mensaje="<a href='http://localhost:4567/cambiar_contrasena/"+email+"/"+password+"'>Haga clic aquí para recuperar su contraseña</a> <br> <br> SSE-UNMSM";
+            Util.enviarCorreo("SSE@gmail.com", email, "Recuperar contraseña", mensaje);
+            HashMap<Object, Object> data=new HashMap<>();
+            data.put("mensaje", "Se le ha mandado un mensaje para recuperar su contraseña");
+            return new ModelAndView(data, "index.ftl.html");
+        },new FreeMarkerEngine());
         
         Spark.post("/contacto", (req,res)->{
             String nombre=req.queryParams("nombre");
@@ -112,7 +107,7 @@ public class Main {
         Spark.get("/cambiar_contrasena/:email/:password", (req, res) -> {
             String email=req.params(":email");
             String password=req.params(":password");
-            Session s=req.session(true);
+            Session s=req.session();
             s.attribute("email", email);
             s.attribute("password", password);
             res.redirect("/cambiar_contrasena.html");
@@ -120,8 +115,9 @@ public class Main {
         });
         
         Spark.post("/cambiar_contrasena", (req, res) -> {
-            String nueva=req.queryParams("nueva");
-            String confirmacion=req.queryParams("confirmacion");
+            String nueva=req.queryParams("password");
+            String confirmacion=req.queryParams("confirmPassword");
+            HashMap<Object, Object> data=new HashMap<>();
             if(nueva.equals(confirmacion)){
                 Util.conectarBD();
                 String email=req.session().attribute("email");
@@ -129,12 +125,15 @@ public class Main {
                 u.set("password", Util.encriptar(nueva));
                 u.saveIt();
                 Base.close();
-                return "Contraseña cambiada";
+                
+                data.put("mensaje", "Se ha cambiado la contraseña satisfactoriamente");
+                return new ModelAndView(data, "index.ftl.html");
             }
             else{
-               return "No se pudo cambiar contraseña";
+               data.put("mensaje", "No se pudo cambiar la contraseña");
+               return new ModelAndView(data, "index.ftl.html");
             }
-        });
+        },new FreeMarkerEngine());
         
         
         /*
@@ -172,7 +171,7 @@ public class Main {
                 usuarios=Usuario.where(query).load();
                 
             }
-            
+            Base.close();
             HashMap<Object, Object> data=new HashMap<>();
             data.put("busqueda",q);
             data.put("usuarios", usuarios);
