@@ -69,7 +69,7 @@ public class Main {
             Usuario u = Usuario.findFirst("email=? and password=?", req.queryParams("email"),encriptada);
             Base.close();
             if (u != null) {
-                res.redirect("/home_egresado.html");
+                res.redirect("/home_egresado");
                 Session s=req.session(true);
                 s.attribute("email", req.queryParams("email"));
                 
@@ -78,7 +78,18 @@ public class Main {
                data.put("mensaje", "Su usuario y contraseña no coinciden");
                return new ModelAndView(data, "index.ftl.html");
             }
-            return null;
+            return null; //debe eliminarse este null
+        },new FreeMarkerEngine());
+        
+        Spark.get("/home_egresado", (req, res) -> {
+            Util.conectarBD();
+           
+            Base.close();
+
+            HashMap<Object, Object> data=new HashMap<>();
+            data.put("mensaje", "Porfavor sírvase llenar la encuesta de egresados 2014");
+            return new ModelAndView(data, "home_egresado.ftl.html");
+
         },new FreeMarkerEngine());
         
         Spark.post("/recuperar", (req, res) -> {

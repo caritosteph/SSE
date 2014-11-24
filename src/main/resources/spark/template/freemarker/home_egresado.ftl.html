@@ -706,6 +706,7 @@
     <script src="assets/js/jquery.scrollTo.min.js"></script>
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="assets/js/jquery.sparkline.js"></script>
+    <script src="js/bootbox.min.js"></script>
 
 
     <!--common script for all pages-->
@@ -718,7 +719,15 @@
     <script src="assets/js/sparkline-chart.js"></script>    
 	<script src="assets/js/zabuto_calendar.js"></script>
 
-	
+	<script type="text/javascript">
+            $(document).ready(function () {
+            <#if mensaje?? >
+                bootbox.alert('${mensaje}', function() {
+                    alert("hola");
+                });
+             </#if> 
+            });       
+        </script>        
 	
 	
 	<script type="application/javascript">
