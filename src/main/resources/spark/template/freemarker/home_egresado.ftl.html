@@ -281,7 +281,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#">
+                      <a href="encuesta.html">
                           <i class="fa fa-pie-chart"></i>
                           <span>Encuestas</span>
                       </a>
@@ -723,8 +723,9 @@
             $(document).ready(function () {
             <#if mensaje?? >
                 bootbox.alert('${mensaje}', function() {
-                    alert("hola");
+                    window.location.replace("/encuesta.html");
                 });
+                
              </#if> 
             });       
         </script>        
