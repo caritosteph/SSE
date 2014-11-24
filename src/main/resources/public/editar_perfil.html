@@ -412,7 +412,7 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="control-group" id="estudio">
-                                                                        <div class="controls"> 
+                                                                        <div class="controls2"> 
                                                                             <form role="form" autocomplete="off">
                                                                                 <div class="entry input-group col-xs-4" name="estudio[]">
                                                                                     <div class="form-group">
@@ -470,7 +470,7 @@
                                                                                         <br><br><br><br>
                                                                                         <button class="btn btn-primary text-right" type="button">Guardar</button>&nbsp;&nbsp;
                                                                                         <button class="btn btn-danger text-right" type="button">Cancelar</button>
-                                                                                        <button class="btn btn-success btn-add text-right" type="button">
+                                                                                        <button class="btn btn-success btn-add2 text-right" type="button">
                                                                                             <span class="glyphicon glyphicon-plus"></span>
                                                                                         </button>
                                                                                     </div>
@@ -847,9 +847,9 @@
         </script>
 
         <script>
-            $(document).ready(function ()
+            $(function ()
             {
-                $('#experiencia').on('click', '.btn-add', function (e)
+                $(document).on('click', '.btn-add', function (e)
                 {
                     e.preventDefault();
 
@@ -860,6 +860,32 @@
                     newEntry.find('input').val('');
                     controlForm.find('.entry:not(:last) .btn-add')
                             .removeClass('btn-add').addClass('btn-remove')
+                            .removeClass('btn-success').addClass('btn-danger')
+                            .html('<span class="glyphicon glyphicon-minus"></span>');
+                }).on('click', '.btn-remove', function (e)
+                {
+                    $(this).parents('.entry:first').remove();
+
+                    e.preventDefault();
+                    return false;
+                });
+            });
+        </script>
+        
+        <script>
+            $(function ()
+            {
+                $(document).on('click', '.btn-add2', function (e)
+                {
+                    e.preventDefault();
+
+                    var controlForm = $('.controls2 form:first'),
+                            currentEntry = $(this).parents('.entry:first'),
+                            newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+                    newEntry.find('input').val('');
+                    controlForm.find('.entry:not(:last) .btn-add2')
+                            .removeClass('btn-add2').addClass('btn-remove')
                             .removeClass('btn-success').addClass('btn-danger')
                             .html('<span class="glyphicon glyphicon-minus"></span>');
                 }).on('click', '.btn-remove', function (e)
