@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Perfil</title>
+        <title>Editar Perfil</title>
         <!-- Bootstrap -->
         <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -50,45 +50,12 @@
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1">
                         <header class="portrait">
-                            <div class="bg-line"></div>
-                            <div class="body-portrait">
-                                <br>
-                                <div class="col-md-12">
-                                    <br>
-                                    <div class="col-md-4">
-                                        <div class="col-md-12">
-                                            <br>
-
-                                            <div flow-init="{singleFile:true}"
-                                                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-                                                <div class="thumbnail" ng-show="!$flow.files.length">
-                                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
-                                                </div>
-                                                <div class="thumbnail" ng-show="$flow.files.length">
-                                                    <img flow-img="$flow.files[0]" />
-                                                </div>
-                                                <div>
-                                                    <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn>Seleccionar imagen</span>
-                                                    <span class="btn btn-info" ng-show="$flow.files.length" flow-btn>Cambiar</span>
-                                                    <span class="btn btn-danger" ng-show="$flow.files.length"
-                                                          ng-click="$flow.cancel()">
-                                                        Eliminar
-                                                    </span>
-                                                </div>
-                                                <p>
-                                                    Solo archivos: PNG,GIF,JPG,JEPG.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                </div>
-                                <div class="col-md-12">
-                                    <img src="img/arrow-down.png" alt="" class="img-arrow">
-                                    <a href="javascript:void(0)" class="btn btn-flat " id="open-content">Acerca de Mi</a>
-                                    <img src="img/arrow-down.png" alt="" class="img-arrow">
-                                </div>
+                            <div class="col-md-12">
+                                <img src="img/arrow-down.png" alt="" class="img-arrow">
+                                <a href="javascript:void(0)" class="btn btn-flat " id="open-content">Acerca de Mi</a>
+                                <img src="img/arrow-down.png" alt="" class="img-arrow">
                             </div>
+
                         </header>
                         <!-- =========
                         End portrait section
@@ -369,76 +336,63 @@
                                 <div id='resume' class="tab-pane fade">
                                     <div class="body-content">
                                         <div class="row">
-                                            <div class="col-md-8">
-                                                <!-- =========
-                                                Start Time line section
-                                                ===================================-->
+                                            <div class="col-md-7">
                                                 <h3 class="title with-icon"><span class="glyphicon glyphicon-plane icn-title"></span> Experiencias laborales</h3>
                                                 <div class="box-block">
                                                     <div class="time-line">
                                                         <div class="item-event current">
-
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="control-group" id="fields">
                                                                         <div class="controls"> 
                                                                             <form role="form" autocomplete="off">
-                                                                                <div class="entry input-group col-xs-5" name="fields[]">
-                                                                                    <button class="btn btn-success btn-add text-right" type="button">
-                                                                                        <span class="glyphicon glyphicon-plus"> Agregar</span>
-                                                                                    </button>
-
+                                                                                <div class="entry input-group col-xs-4" name="fields[]" id="experiencia">
                                                                                     <div class="form-group">
                                                                                         <label>Nombre de la Empresa</label>
                                                                                         <input type="text" class="form-control" id="CompanyForm" name="" placeholder="Nombre de la Empresa">
                                                                                     </div>
                                                                                     <div class="form-group">
+                                                                                        <br><br>
                                                                                         <label>Dirección de la Empresa</label>
                                                                                         <input class="form-control" name="" type="text" placeholder="Direccion" />
                                                                                     </div>
                                                                                     <div class="form-group">
+                                                                                        <br><br>
                                                                                         <label>Título del Puesto</label>
-                                                                                        <input class="form-control"  type="text" placeholder="Titulo del peusto" />
+                                                                                        <input class="form-control"  type="text" placeholder="Titulo del puesto" />
                                                                                     </div>
-                                                                                    <div class="form-group col-xs-7" style="height: 0px;margin-bottom: 0px;">
-                                                                          
+                                                                                    <div class="form-group" >
+                                                                                        <br><br>
+                                                                                        <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
                                                                                             <label>Fecha de Inicio</label>
-                                                                                            <input type="text" class="form-control" name="nombres" placeholder="Fecha de Inicio">
-                     
-                                                                                    </div>
-                                                                                    <div class="form-group col-xs-7" style="padding-left: 0;">
-                                                                                        
+                                                                                            <input type="text" class="form-control" name="fecha_inicio" placeholder="Inició" value="11-2014">
+                                                                                        </div> 
+                                                                                        <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
                                                                                             <label>Fecha de Fin</label>
-                                                                                            <input type="text" class="form-control" name="apellidos" placeholder="Fecha de Fin">
-                                                                                       
+                                                                                            <input type="text" class="form-control" name="apellidos" placeholder="Terminó">
+                                                                                        </div>
+                                                                                        <br><br>
+                                                                                        <div class="form-group col-xs-offset-9">
+                                                                                            <input type="checkbox"> Actualmente
+                                                                                        </div>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Descripción del Puesto</label>
-                                                                                        <input class="form-control" name="" type="text" placeholder="Type something" />
+                                                                                        <textarea class="form-control" rows="3" style="resizable:none;"></textarea>
                                                                                     </div>
-
+                                                                                    <div class="form-group">
+                                                                                        <br><br><br><br>
+                                                                                        <button class="btn btn-primary" type="button">Guardar</button>&nbsp;&nbsp;
+                                                                                        <button class="btn btn-danger" type="button">Cancelar</button>
+                                                                                        <button class="btn btn-success btn-add" type="button">
+                                                                                            <span class="glyphicon glyphicon-plus"></span>
+                                                                                        </button>
+                                                                                    </div>
                                                                                 </div>
                                                                             </form>
-                                                                            <br><br><br><br>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-event">
-                                                            <span class="date">2013</span>
-                                                            <div class="event-content">
-                                                                <h4>Front End Web Developer</h4>
-                                                                <h5>Wrapbootstrap Inc.</h5>
-                                                                <p>As a web designer and developer, my objective is to make a positive impact on clients using my skills and experience to design compelling and building attractive websites.</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-event last">
-                                                            <span class="date">2012</span>
-                                                            <div class="event-content">
-                                                                <h4>Other Job</h4>
-                                                                <h5>Unknown Inc.</h5>
-                                                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -455,43 +409,87 @@
                                                 <div class="box-block">
                                                     <div class="time-line">
                                                         <div class="item-event current">
-                                                            <span class="date">2011</span>
-                                                            <div class="event-content">
-                                                                <h4>Web Designer</h4>
-                                                                <h5 >Google University.</h5>
-                                                                <p>I worked as a Web Developer at Google for 2 years. I create usable web interfaces, front end coding stuff and almost anything. But i love what i do.</p>
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="control-group" id="estudio">
+                                                                        <div class="controls"> 
+                                                                            <form role="form" autocomplete="off">
+                                                                                <div class="entry input-group col-xs-4" name="estudio[]">
+                                                                                    <div class="form-group">
+                                                                                        <label>Centro de Estudios</label>
+                                                                                        <input type="text" class="form-control" id="CompanyForm" name="" placeholder="Nombre de la Empresa">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <br><br>
+                                                                                        <label>Título</label>
+                                                                                        <input class="form-control" name="" type="text" placeholder="Direccion" />
+                                                                                    </div>
+
+                                                                                    <div class="form-group ">
+                                                                                        <label>Nivel de Estudio</label>
+                                                                                        <select class="form-control" name="estado">
+                                                                                            <option value="Masculino">Secuendario</option>
+                                                                                            <option value="Masculino">Universitario</option>
+                                                                                            <option value="Femenino">Master</option>
+                                                                                            <option value="Femenino">Doctorado</option>
+                                                                                            <option value="Femenino">Postdoctorado</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="form-group ">
+                                                                                        <label>Estado</label>
+                                                                                        <select class="form-control" name="estado">
+                                                                                            <option value="Incompleto">Incompleto</option>
+                                                                                            <option value="En curso">En curso</option>
+                                                                                            <option value="Finalizado">Finalizado</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Nota</label>
+                                                                                        <input class="form-control"  type="text" placeholder="Titulo del puesto" />
+                                                                                    </div>
+                                                                                    <div class="form-group" >
+                                                                                        <br><br>
+                                                                                        <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                                                                                            <label>Fecha de Inicio</label>
+                                                                                            <input type="text" class="form-control" name="fecha_inicio" placeholder="Inició" value="11-2014">
+                                                                                        </div> 
+                                                                                        <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                                                                                            <label>Fecha de Fin</label>
+                                                                                            <input type="text" class="form-control" name="apellidos" placeholder="Terminó">
+                                                                                        </div>
+                                                                                        <br><br>
+                                                                                        <div class="form-group col-xs-offset-9">
+                                                                                            <input type="checkbox"> Actualmente
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Descripción del título</label>
+                                                                                        <textarea class="form-control" rows="3"></textarea>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <br><br><br><br>
+                                                                                        <button class="btn btn-primary text-right" type="button">Guardar</button>&nbsp;&nbsp;
+                                                                                        <button class="btn btn-danger text-right" type="button">Cancelar</button>
+                                                                                        <button class="btn btn-success btn-add text-right" type="button">
+                                                                                            <span class="glyphicon glyphicon-plus"></span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="item-event">
-                                                            <span class="date">2008</span>
-                                                            <div class="event-content">
-                                                                <h4>Front End Web Developer</h4>
-                                                                <h5>Wrapbootstrap University.</h5>
-                                                                <p>As a web designer and developer, my objective is to make a positive impact on clients using my skills and experience to design compelling and building attractive websites.</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-event last">
-                                                            <span class="date">2006</span>
-                                                            <div class="event-content">
-                                                                <h4>Other Education</h4>
-                                                                <h5>Unknown University.</h5>
-                                                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
-
+                                            <div class="col-md-5">
                                                 <h3 class="title with-icon"><span class="fa fa-code icn-title"></span> Programación
-
                                                 </h3>
-
-
                                                 <div class="box-block">
-
-
                                                     <!-- =========
                                                     STart your Skills Progress bars section
                                                     ===================================-->
@@ -559,17 +557,45 @@
                                                 </div>
                                                 <div class="deviter"></div>
                                                 <h3 class="title with-icon"><span class="fa fa-globe icn-title"></span> Idiomas</h3>
-                                                <div class="box-block">
-                                                    <ul class="list-unstyled list-strip">
-                                                        <li><i class="fa fa-check"></i> English</li>
-                                                        <li><i class="fa fa-check"></i> Indonesia</li>
-                                                        <li><i class="fa fa-check"></i> Bahasa Sunda</li>
-                                                    </ul>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="control-group" id="estudio">
+                                                            <div class="controls"> 
+                                                                <form role="form" autocomplete="off">
+                                                                    <div class="entry input-group col-xs-3" name="estudio[]">
+                                                                        <div class="form-group" >
+                                                                            <br><br>
+                                                                            <div class="form-group col-xs-4">
+                                                                                <label>Idioma</label>
+                                                                                <input type="text" class="form-control" id="CompanyForm" name="" placeholder="Nombre de la Empresa">
+                                                                            </div> 
+                                                                            <div class="form-group col-xs-4">
+                                                                                <label>Nivel</label>
+                                                                                <select class="form-control" name="estado">
+                                                                                    <option value="Incompleto">Básico</option>
+                                                                                    <option value="En curso">Intermedio</option>
+                                                                                    <option value="Finalizado">Avanzado</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <br><br><br><br>
+                                                                            <button class="btn btn-primary text-right" type="button">Guardar</button>&nbsp;&nbsp;
+                                                                            <button class="btn btn-danger text-right" type="button">Cancelar</button>
+                                                                            <button class="btn btn-success btn-add text-right" type="button">
+                                                                                <span class="glyphicon glyphicon-plus"></span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="deviter"></div>
                                                 <h3 class="title with-icon"><span class="fa fa-file icn-title"></span> Descargar Cv</h3>
                                                 <div class="box-block">
-                                                    <p>You can download my CV in pdf format if you like. I love what i do.</p>
+                                                    <p>Puedes descargar mi CV en pdf format</p>
                                                     <a href="#" class="btn btn-flat btn-block"><i class="fa fa-download"></i> Descargar</a>
                                                     <div class="text-center">o</div>
                                                     <a href="#" class="btn btn-flat btn-block style2"><i class="fa fa-print"></i> Imprimir</a>
@@ -639,6 +665,7 @@
             $(function () {
                 window.prettyPrint && prettyPrint();
                 $('#dpYears').datepicker();
+                $('.dpMonths').datepicker();
             });
         </script>
 
@@ -777,9 +804,9 @@
         </script>
 
         <script>
-            $(function ()
+            $(document).ready(function ()
             {
-                $(document).on('click', '.btn-add', function (e)
+                $('#experiencia').on('click', '.btn-add', function (e)
                 {
                     e.preventDefault();
 
@@ -791,7 +818,7 @@
                     controlForm.find('.entry:not(:last) .btn-add')
                             .removeClass('btn-add').addClass('btn-remove')
                             .removeClass('btn-success').addClass('btn-danger')
-                            .html('<span class="glyphicon glyphicon-minus"> Eliminar</span>');
+                            .html('<span class="glyphicon glyphicon-minus"></span>');
                 }).on('click', '.btn-remove', function (e)
                 {
                     $(this).parents('.entry:first').remove();
@@ -801,6 +828,7 @@
                 });
             });
         </script>
+
         <!-- fin para editar -->
     </body>
 </html>
