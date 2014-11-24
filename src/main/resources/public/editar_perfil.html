@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Editar Perfil</title>
         <!-- Bootstrap -->
-        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- CSS Font Icon and Plugins -->
         <link href="css/font-awesome.css" rel="stylesheet">
@@ -105,7 +105,8 @@
                                                 <div class="col-md-9">
                                                     <div class="mini-desc">
                                                         <h2 class="title"><a href="#"  data-type="text" data-mode="inline" class="editar editable editable-click">Hola, Mi nombre es Carlos Rojas!</a></h2>
-                                                        <p><a href="#"  data-type="textarea" data-mode="inline"  class="editar editable editable-click">Hola mi nombre es Carlos Rojas, soy programador web y movil.Estudié en San Marcos, sobre todo el estudio de programación web y movil.He estado trabajando en diferentes tipos de proyectos como: marca, diseño web, el código, la ilustración. Tengo una pasión para la creación de todo tipo de cosas relacionadas con las artes visuales, como el tipo, películas, fotos ...  </a>
+                                                        <p>
+                                                            <textarea class="form-control" name="descripcion_puesto" rows="5" style="resizable:none;"></textarea>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -345,8 +346,8 @@
                                                                 <div class="row">
                                                                     <div class="control-group" id="fields">
                                                                         <div class="controls"> 
-                                                                            <form role="form" autocomplete="off">
-                                                                                <div class="entry input-group col-xs-4" name="fields[]" id="experiencia">
+                                                                            <form role="form" autocomplete="on">
+                                                                                <div class="entry input-group col-xs-4" name="experiencias[]" id="experiencia">
                                                                                     <div class="form-group text-right">
                                                                                         <button class="btn btn-success btn-add " type="button">
                                                                                             <span class="glyphicon glyphicon-plus"></span>
@@ -354,7 +355,7 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Nombre de la Empresa</label>
-                                                                                        <input type="text" class="form-control" id="CompanyForm" name="empresa" placeholder="Nombre de la Empresa">
+                                                                                        <input type="text" class="form-control" name="empresa" placeholder="Nombre de la Empresa">
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br>
@@ -364,6 +365,7 @@
                                                                                     <div class="form-group">
                                                                                         <br><br>
                                                                                         <label>Título del Puesto</label>
+
                                                                                         <input class="form-control"  type="text" name="titulo" placeholder="Titulo del puesto" />
                                                                                     </div>
                                                                                     <div class="form-group" >
@@ -383,7 +385,7 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Descripción del Puesto</label>
-                                                                                        <textarea class="form-control" name="descripcion_puesto" rows="3" style="resizable:none;"></textarea>
+                                                                                        <textarea class="form-control" name="descripcion_puesto" rows="3"></textarea>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br><br><br>
@@ -871,12 +873,6 @@
                                 },
                             }
                         },
-                        titulo: {
-                            validators: {
-                                notEmpty: {
-                                },
-                            }
-                        },
                         fecha_inicio: {
                             validators: {
                                 notEmpty: {
@@ -913,13 +909,7 @@
                                 },
                             }
                         },
-                        centro_estudio_curso:{
-                            validators: {
-                                notEmpty: {
-                                },
-                            }
-                        },
-                        nombre_curso: {
+                        centro_estudio_curso: {
                             validators: {
                                 notEmpty: {
                                 },
@@ -951,7 +941,7 @@
                 {
                     $(this).parents('.entry:first').remove();
 
-                    e.preventDefault();
+
                     return false;
                 });
             });
