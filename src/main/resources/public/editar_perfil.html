@@ -76,7 +76,7 @@
                                         <!-- =========
                                         Start About your self section
                                         ===================================-->
-                                        <form action="" id="validar">
+                                        <form class="validar">
 
                                             <div class="row">
                                                 <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Presentación</h3>
@@ -333,7 +333,7 @@
                                 <!-- =========
                                 Curriculum
                                 ===================================-->
-                                <div id='resume' class="tab-pane fade">
+                                <div id='resume' class="tab-pane fade validar">
                                     <div class="body-content">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -354,17 +354,17 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Nombre de la Empresa</label>
-                                                                                        <input type="text" class="form-control" id="CompanyForm" name="" placeholder="Nombre de la Empresa">
+                                                                                        <input type="text" class="form-control" id="CompanyForm" name="empresa" placeholder="Nombre de la Empresa">
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br>
                                                                                         <label>Dirección de la Empresa</label>
-                                                                                        <input class="form-control" name="" type="text" placeholder="Direccion" />
+                                                                                        <input class="form-control" name="direccion_empresa" type="text" placeholder="Direccion" />
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br>
                                                                                         <label>Título del Puesto</label>
-                                                                                        <input class="form-control"  type="text" placeholder="Titulo del puesto" />
+                                                                                        <input class="form-control"  type="text" name="titulo" placeholder="Titulo del puesto" />
                                                                                     </div>
                                                                                     <div class="form-group" >
                                                                                         <br><br>
@@ -374,16 +374,16 @@
                                                                                         </div> 
                                                                                         <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="01-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
                                                                                             <label>Fecha de Fin</label>
-                                                                                            <input type="text" class="form-control" name="apellidos" placeholder="12-2014">
+                                                                                            <input type="text" class="form-control" name="fecha_fin" placeholder="12-2014">
                                                                                         </div>
                                                                                         <br><br>
                                                                                         <div class="form-group col-xs-offset-9">
-                                                                                            <input type="checkbox"> Actualmente
+                                                                                            <input type="checkbox" name="actual"> Actualmente
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Descripción del Puesto</label>
-                                                                                        <textarea class="form-control" rows="3" style="resizable:none;"></textarea>
+                                                                                        <textarea class="form-control" name="descripcion_puesto" rows="3" style="resizable:none;"></textarea>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br><br><br>
@@ -417,7 +417,7 @@
                                                                     <div class="control-group" id="estudio">
                                                                         <div class="controls2"> 
                                                                             <form role="form" autocomplete="off">
-                                                                                <div class="entry input-group col-xs-4" name="estudio[]">
+                                                                                <div class="entry input-group col-xs-4" name="estudios[]">
                                                                                     <div class="form-group text-right">
                                                                                         <button class="btn btn-success btn-add2" type="button">
                                                                                             <span class="glyphicon glyphicon-plus"></span>
@@ -425,17 +425,17 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Centro de Estudios</label>
-                                                                                        <input type="text" class="form-control" id="CompanyForm" name="" placeholder="Nombre del centro de estudios">
+                                                                                        <input type="text" class="form-control" id="CompanyForm" name="centro_estudios" placeholder="Nombre del centro de estudios">
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br>
                                                                                         <label>Título</label>
-                                                                                        <input class="form-control" name="" type="text" placeholder="Título" />
+                                                                                        <input class="form-control" name="titulo_estudio" type="text" placeholder="Título" />
                                                                                     </div>
 
                                                                                     <div class="form-group ">
                                                                                         <label>Nivel de Estudio</label>
-                                                                                        <select class="form-control" name="estado">
+                                                                                        <select class="form-control" name="nivel_estudio">
                                                                                             <option value="Masculino">Secuendario</option>
                                                                                             <option value="Masculino">Universitario</option>
                                                                                             <option value="Femenino">Master</option>
@@ -445,7 +445,7 @@
                                                                                     </div>
                                                                                     <div class="form-group ">
                                                                                         <label>Estado</label>
-                                                                                        <select class="form-control" name="estado">
+                                                                                        <select class="form-control" name="estado_estudio">
                                                                                             <option value="Incompleto">Incompleto</option>
                                                                                             <option value="En curso">En curso</option>
                                                                                             <option value="Finalizado">Finalizado</option>
@@ -453,17 +453,17 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Nota</label>
-                                                                                        <input class="form-control"  type="text" placeholder="Nota" />
+                                                                                        <input class="form-control" name="nota"  type="text" placeholder="Nota" />
                                                                                     </div>
                                                                                     <div class="form-group" >
                                                                                         <br><br>
                                                                                         <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
                                                                                             <label>Fecha de Inicio</label>
-                                                                                            <input type="text" class="form-control" name="fecha_inicio" placeholder="11-2014" value="">
+                                                                                            <input type="text" class="form-control" name="fecha_inicio_estudio" placeholder="11-2014" value="">
                                                                                         </div> 
                                                                                         <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="04-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
                                                                                             <label>Fecha de Fin</label>
-                                                                                            <input type="text" class="form-control" name="apellidos" placeholder="12-2014">
+                                                                                            <input type="text" class="form-control" name="fecha_fin_estudio" placeholder="12-2014">
                                                                                         </div>
                                                                                         <br><br>
                                                                                         <div class="form-group col-xs-offset-9">
@@ -503,15 +503,15 @@
                                                                     <div class="control-group" id="estudio">
                                                                         <div class="controls3"> 
                                                                             <form role="form" autocomplete="off">
-                                                                                <div class="entry input-group" name="lenguaje[]">
+                                                                                <div class="entry input-group" name="lenguajes[]">
                                                                                     <div class="form-group" >
-                                                                                        <div class="form-group col-xs-5" style="padding-left: 0px;padding-right: 0px;">
+                                                                                        <div class="form-group col-xs-4" style="padding-left: 0px;padding-right: 0px;">
                                                                                             <label>Lenguaje</label>
-                                                                                            <input type="text" class="form-control" name="apellidos" placeholder="Programación">
+                                                                                            <input type="text" class="form-control" name="lenguaje" placeholder="Programación">
                                                                                         </div>
-                                                                                        <div class="form-group col-xs-5" style="padding-right: 20px;">
+                                                                                        <div class="form-group col-xs-5" style="padding-right:4px;">
                                                                                             <label>Nivel</label>
-                                                                                            <select class="form-control" name="estado">
+                                                                                            <select class="form-control" name="nivel_programacion">
                                                                                                 <option value="Incompleto">Básico</option>
                                                                                                 <option value="En curso">Intermedio</option>
                                                                                                 <option value="Finalizado">Avanzado</option>
@@ -544,7 +544,7 @@
                                                                     <div class="control-group" id="estudio">
                                                                         <div class="controls4"> 
                                                                             <form role="form" autocomplete="off">
-                                                                                <div class="entry input-group  col-xs-4" name="conocimiento[]">
+                                                                                <div class="entry input-group  col-xs-4" name="conocimientos[]">
                                                                                     <div class="form-group text-right">
                                                                                         <button class="btn btn-success btn-add4 text-right" type="button">
                                                                                             <span class="glyphicon glyphicon-plus"></span>
@@ -552,14 +552,13 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Nombre del conocimiento</label>
-                                                                                        <input type="text" class="form-control" name="apellidos" placeholder="Nombre del Conocimiento">
+                                                                                        <input type="text" class="form-control" name="nombre_conocimiento" placeholder="Nombre del Conocimiento">
                                                                                     </div>
 
                                                                                     <div class="form-group">
                                                                                         <br><br>
                                                                                         <label>Descripción del Conocimiento</label>
                                                                                         <textarea class="form-control" rows="3" style="resizable:none;"></textarea>
-                                                                                        
                                                                                     </div>
                                                                                     <br><br><br><br>
                                                                                 </div>
@@ -579,17 +578,17 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="control-group" id="estudio">
-                                                                        <div class="controls"> 
+                                                                        <div class="controls5"> 
                                                                             <form role="form" autocomplete="off">
-                                                                                <div class="entry input-group" name="estudio[]">
+                                                                                <div class="entry input-group" name="idiomas[]">
                                                                                     <div class="form-group" >
-                                                                                        <div class="form-group col-xs-5" style="padding-left:0px;padding-right:0px;">
+                                                                                        <div class="form-group col-xs-4" style="padding-left:0px;padding-right:0px;">
                                                                                             <label>Idioma</label>
-                                                                                            <input type="text" class="form-control" name="apellidos" placeholder="Idioma">
+                                                                                            <input type="text" class="form-control" name="idioma" placeholder="Idioma">
                                                                                         </div>
-                                                                                        <div class="form-group col-xs-5" style="padding-right:33px;">
+                                                                                        <div class="form-group col-xs-5" style="padding-right:18px;">
                                                                                             <label>Nivel</label>
-                                                                                            <select class="form-control" name="estado">
+                                                                                            <select class="form-control" name="nivel_idioma">
                                                                                                 <option value="Incompleto">Básico</option>
                                                                                                 <option value="En curso">Intermedio</option>
                                                                                                 <option value="Finalizado">Avanzado</option>
@@ -598,7 +597,7 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br>
-                                                                                        <button class="btn btn-success btn-add text-right" type="button">
+                                                                                        <button class="btn btn-success btn-add5 text-right" type="button">
                                                                                             <span class="glyphicon glyphicon-plus"></span>
                                                                                         </button>
                                                                                     </div>
@@ -619,36 +618,36 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="control-group" id="estudio">
-                                                                        <div class="controls5"> 
+                                                                        <div class="controls6"> 
                                                                             <form role="form" autocomplete="off">
                                                                                 <div class="entry input-group col-xs-4" name="cursos[]">
                                                                                     <div class="form-group text-right">
-                                                                                        <button class="btn btn-success btn-add5 text-right" type="button">
+                                                                                        <button class="btn btn-success btn-add6 text-right" type="button">
                                                                                             <span class="glyphicon glyphicon-plus"></span>
                                                                                         </button>
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label>Centro de Estudios</label>
-                                                                                        <input type="text" class="form-control" id="CompanyForm" name="" placeholder="Nombre del Centro de Estudios">
+                                                                                        <input type="text" class="form-control" id="CompanyForm" name="centro_estudio_curso" placeholder="Nombre del Centro de Estudios">
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br>
                                                                                         <label>Nombre del Curso</label>
-                                                                                        <input class="form-control" name="" type="text" placeholder="Nombre del Curso" />
+                                                                                        <input class="form-control" name="nombre_curso" type="text" placeholder="Nombre del Curso" />
                                                                                     </div>
                                                                                     <div class="form-group" >
                                                                                         <br><br>
                                                                                         <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
                                                                                             <label>Fecha de Inicio</label>
-                                                                                            <input type="text" class="form-control" name="fecha_inicio" placeholder="11-2014" value="">
+                                                                                            <input type="text" class="form-control" name="fecha_inicio_curso" placeholder="11-2014" value="">
                                                                                         </div> 
                                                                                         <div class="form-group col-xs-4 dpMonths" style="padding-left: 0px;" data-date="11-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years" data-date-minviewmode="months">
                                                                                             <label>Fecha de Fin</label>
-                                                                                            <input type="text" class="form-control" name="fecha_fin" placeholder="12-2014">
+                                                                                            <input type="text" class="form-control" name="fecha_fin_curso" placeholder="12-2014">
                                                                                         </div>
                                                                                         <br><br>
                                                                                         <div class="form-group col-xs-offset-9">
-                                                                                            <input type="checkbox"> Actualmente
+                                                                                            <input type="checkbox" name="actual_curso"> Actualmente
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group">
@@ -740,7 +739,7 @@
 
         <script>
             $(document).ready(function () {
-                $('#validar').bootstrapValidator({
+                $('.validar').bootstrapValidator({
                     feedbackIcons: {
                         valid: 'glyphicon glyphicon-ok',
                         invalid: 'glyphicon glyphicon-remove',
@@ -861,6 +860,66 @@
                             }
                         },
                         twitter: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        empresa: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        titulo: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        fecha_inicio: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        centro_estudios: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        titulo_estudio: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        lenguaje: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        nombre_conocimiento: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        idioma: {
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        centro_estudio_curso:{
+                            validators: {
+                                notEmpty: {
+                                },
+                            }
+                        },
+                        nombre_curso: {
                             validators: {
                                 notEmpty: {
                                 },
@@ -987,6 +1046,31 @@
                     newEntry.find('input').val('');
                     controlForm.find('.entry:not(:last) .btn-add5')
                             .removeClass('btn-add5').addClass('btn-remove')
+                            .removeClass('btn-success').addClass('btn-danger')
+                            .html('<span class="glyphicon glyphicon-minus"></span>');
+                }).on('click', '.btn-remove', function (e)
+                {
+                    $(this).parents('.entry:first').remove();
+
+                    e.preventDefault();
+                    return false;
+                });
+            });
+        </script>
+        <script>
+            $(function ()
+            {
+                $(document).on('click', '.btn-add6', function (e)
+                {
+                    e.preventDefault();
+
+                    var controlForm = $('.controls6 form:first'),
+                            currentEntry = $(this).parents('.entry:first'),
+                            newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+                    newEntry.find('input').val('');
+                    controlForm.find('.entry:not(:last) .btn-add6')
+                            .removeClass('btn-add6').addClass('btn-remove')
                             .removeClass('btn-success').addClass('btn-danger')
                             .html('<span class="glyphicon glyphicon-minus"></span>');
                 }).on('click', '.btn-remove', function (e)
