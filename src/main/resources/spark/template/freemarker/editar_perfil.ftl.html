@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
     <head>
-        <meta charset="utf-8">
+        <meta charset="iso-8859-1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Editar Perfil</title>
@@ -76,10 +76,10 @@
                                         <!-- =========
                                         Start About your self section
                                         ===================================-->
-                                        <form class="validar">
+                                        <form action="/modificar_perfil" method='post' class="validar">
 
                                             <div class="row">
-                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Presentaci贸n</h3>
+                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Presentaci髇</h3>
                                                 <div class="col-md-3 text-center">
                                                     <div flow-init="{singleFile:true}"
                                                          flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
@@ -120,7 +120,7 @@
                                             ===================================-->
                                             <div class="deviter"></div>
                                             <div class="row">
-                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos B谩sicos</h3>
+                                                <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Datos B醩icos</h3>
                                                 <div class="identity-area">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -162,7 +162,7 @@
                                                     <br>
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <div class="col-sm-4 "><label>G茅nero</label></div>
+                                                            <div class="col-sm-4 "><label>G閚ero</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group ">
                                                                     <select class="form-control" name="genero" >
@@ -197,10 +197,10 @@
                                                 <div class="identity-area">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <div class="col-sm-4"><label>Direcci贸n Actual</label></div>
+                                                            <div class="col-sm-4"><label>Direcci髇 Actual</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="direccion" placeholder="Ingrese direcci贸n actual">
+                                                                    <input type="text" class="form-control" name="direccion" placeholder="Ingrese direcci髇 actual">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -216,18 +216,18 @@
                                                     <br>
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <div class="col-sm-4"><label>Tel茅fono F铆jo</label></div>
+                                                            <div class="col-sm-4"><label>Tel閒ono F韏o</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="telefono_fijo" placeholder="Ingrese tel茅fono fijo">
+                                                                    <input type="text" class="form-control" name="telefono_fijo" placeholder="Ingrese tel閒ono fijo">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <div class="col-sm-4"><label>Tel茅fono Celular</label></div>
+                                                            <div class="col-sm-4"><label>Tel閒ono Celular</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="telefono_movil" placeholder="Ingrese tel茅fono celular">
+                                                                    <input type="text" class="form-control" name="telefono_movil" placeholder="Ingrese tel閒ono celular">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -267,10 +267,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <div class="col-sm-4"><label>A帽o de Egreso</label></div>
+                                                            <div class="col-sm-4"><label>A駉 de Egreso</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="anio_egreso" placeholder="Ingrese a帽o de egreso">
+                                                                    <input type="text" class="form-control" name="anio_egreso" placeholder="Ingrese a駉 de egreso">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -284,10 +284,10 @@
                                                 <div class="identity-area">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <div class="col-sm-4"><label>Correo Electr贸nico</label></div>
+                                                            <div class="col-sm-4"><label>Correo Electr髇ico</label></div>
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" id="CompanyForm" name="email" placeholder="Ingrese correo electr贸nico">
+                                                                    <input type="text" class="form-control" id="CompanyForm" name="email" placeholder="Ingrese correo electr髇ico">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -359,12 +359,12 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br>
-                                                                                        <label>Direcci贸n de la Empresa</label>
+                                                                                        <label>Direcci髇 de la Empresa</label>
                                                                                         <input class="form-control" name="direccion_empresa" type="text" placeholder="Direccion" />
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br>
-                                                                                        <label>T铆tulo del Puesto</label>
+                                                                                        <label>T韙ulo del Puesto</label>
 
                                                                                         <input class="form-control"  type="text" name="titulo_puesto" placeholder="Titulo del puesto" />
                                                                                     </div>
@@ -384,7 +384,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group">
-                                                                                        <label>Descripci贸n del Puesto</label>
+                                                                                        <label>Descripci髇 del Puesto</label>
                                                                                         <textarea class="form-control" name="descripcion_puesto" rows="3"></textarea>
                                                                                     </div>
                                                                                     <div class="form-group">
@@ -431,8 +431,8 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <br><br>
-                                                                                        <label>T铆tulo</label>
-                                                                                        <input class="form-control" name="titulo_estudio" type="text" placeholder="T铆tulo" />
+                                                                                        <label>T韙ulo</label>
+                                                                                        <input class="form-control" name="titulo_estudio" type="text" placeholder="T韙ulo" />
                                                                                     </div>
 
                                                                                     <div class="form-group ">
@@ -473,7 +473,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group">
-                                                                                        <label>Descripci贸n del t铆tulo</label>
+                                                                                        <label>Descripci髇 del t韙ulo</label>
                                                                                         <textarea class="form-control" rows="3"></textarea>
                                                                                     </div>
                                                                                     <div class="form-group">
@@ -495,7 +495,7 @@
                                             </div>
 
                                             <div class="col-md-6">
-                                                <h3 class="title with-icon"><span class="fa fa-code icn-title"></span> Programaci贸n
+                                                <h3 class="title with-icon"><span class="fa fa-code icn-title"></span> Programaci髇
                                                 </h3>
                                                 <div class="box-block">
                                                     <div class="time-line">
@@ -509,12 +509,12 @@
                                                                                     <div class="form-group" >
                                                                                         <div class="form-group col-xs-4" style="padding-left: 0px;padding-right: 0px;">
                                                                                             <label>Lenguaje</label>
-                                                                                            <input type="text" class="form-control" name="lenguaje" placeholder="Programaci贸n">
+                                                                                            <input type="text" class="form-control" name="lenguaje" placeholder="Programaci髇">
                                                                                         </div>
                                                                                         <div class="form-group col-xs-5" style="padding-right:4px;">
                                                                                             <label>Nivel</label>
                                                                                             <select class="form-control" name="nivel_programacion">
-                                                                                                <option value="Incompleto">B谩sico</option>
+                                                                                                <option value="Incompleto">B醩ico</option>
                                                                                                 <option value="En curso">Intermedio</option>
                                                                                                 <option value="Finalizado">Avanzado</option>
                                                                                                 <option value="Finalizado">Experto</option>
@@ -559,7 +559,7 @@
 
                                                                                     <div class="form-group">
                                                                                         <br><br>
-                                                                                        <label>Descripci贸n del Conocimiento</label>
+                                                                                        <label>Descripci髇 del Conocimiento</label>
                                                                                         <textarea class="form-control" rows="3" style="resizable:none;"></textarea>
                                                                                     </div>
                                                                                     <br><br><br><br>
@@ -591,7 +591,7 @@
                                                                                         <div class="form-group col-xs-5" style="padding-right:18px;">
                                                                                             <label>Nivel</label>
                                                                                             <select class="form-control" name="nivel_idioma">
-                                                                                                <option value="Incompleto">B谩sico</option>
+                                                                                                <option value="Incompleto">B醩ico</option>
                                                                                                 <option value="En curso">Intermedio</option>
                                                                                                 <option value="Finalizado">Avanzado</option>
                                                                                             </select>
@@ -653,7 +653,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group">
-                                                                                        <label>Descripci贸n del curso</label>
+                                                                                        <label>Descripci髇 del curso</label>
                                                                                         <textarea class="form-control" rows="3"></textarea>
                                                                                     </div>
                                                                                     <div class="form-group">
